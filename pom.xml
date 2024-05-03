@@ -220,7 +220,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>org.nachc.cad.tools.vsactoohdsiexample.main.VsacToOhdsiExampleMain</mainClass>
+							<mainClass>org.nachc.tools.politesforsqlserver.util.gui.PolitesGui</mainClass>
 						</manifest>
 						<manifestEntries>
 							<Class-Path>. ./lib/SparkJDBC42.jar ./lib/SqlRender-1.9.2-SNAPSHOT.jar</Class-Path>

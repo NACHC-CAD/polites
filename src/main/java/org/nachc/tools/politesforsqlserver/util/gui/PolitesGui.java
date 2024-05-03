@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.nachc.tools.politesforsqlserver.util.action.ExecutePolitesGoAction;
+import org.yaorma.util.time.Timer;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -182,6 +183,8 @@ public class PolitesGui extends JFrame {
 
 		int result = JOptionPane.showConfirmDialog(this, confirmationMessage.toString(), "Continue or Cancel", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
+			Timer timer = new Timer();
+			timer.start();
 			ArrayList<String> sel = new ArrayList<String>();
 			log.info("User chose to continue with the following selections:");
 			if (burnEverythingToTheGround.isSelected()) {
@@ -225,8 +228,15 @@ public class PolitesGui extends JFrame {
 			log.info("----------------------------------");
 			log.info("CALLING ACTION...");
 			ExecutePolitesGoAction.exec(sel,databaseType.getSelectedItem()+"",cdmVersion.getSelectedItem()+"");
-			log.info("DONE WITH ACTION.");
-			log.info("----------------------------------");
+			log.info("DONE WITH ACTION:");
+			timer.stop();
+			String msg = "";
+			msg += "\n---------------";
+			msg += "\nstart:   " + timer.getStartAsString();
+			msg += "\nstop:    " + timer.getStopAsString();
+			msg += "\nelapsed: " + timer.getElapsedString();
+			msg += "\n---------------";
+			log.info("\n" + msg + "\n");
 			log.info("Done.");
 		} else {
 			log.info("User canceled the action.");
