@@ -1,16 +1,18 @@
+package org.nachc.tools.politesforsqlserver.util.gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class CheckboxApplication extends JFrame {
+public class PolitesGui extends JFrame {
     private JCheckBox[] checkboxes;
     private JCheckBox selectAllCheckbox;
     private JComboBox<String> comboBox;
     private JButton goButton;
 
-    public CheckboxApplication() {
+    public PolitesGui() {
         super("Checkbox Application");
 
         // Set up the JFrame with BorderLayout
@@ -125,6 +127,6 @@ public class CheckboxApplication extends JFrame {
     }
 
     public static void main(String[] args) {
-        new CheckboxApplication();
+        new PolitesGui();
     }
 }
