@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class PolitesGui extends JFrame {
     private JCheckBox[] checkboxes;
     private JCheckBox selectAllCheckbox;
-    private JComboBox<String> comboBox;
+    private JComboBox<String> comboBox1, comboBox2;
     private JButton goButton;
 
     public PolitesGui() {
@@ -61,12 +61,14 @@ public class PolitesGui extends JFrame {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
-        // Create the combo box and button panel
+        // Create the combo boxes and button panel
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         String[] items = {"Option 1", "Option 2", "Option 3"};
-        comboBox = new JComboBox<>(items);
-        controlPanel.add(comboBox);
+        comboBox1 = new JComboBox<>(items);
+        comboBox2 = new JComboBox<>(items); // Second combo box initialized with the same items
+        controlPanel.add(comboBox1);
+        controlPanel.add(comboBox2);
 
         goButton = new JButton("Go");
         goButton.addActionListener(new ActionListener() {
@@ -99,11 +101,13 @@ public class PolitesGui extends JFrame {
             }
         }
 
-        // Get the selected item from the picklist
-        String selectedPicklistItem = (String) comboBox.getSelectedItem();
-        selectedOptions.append("Picklist selection: ").append(selectedPicklistItem).append("<br></html>");
+        // Get the selected item from the first and second picklists
+        String selectedPicklistItem1 = (String) comboBox1.getSelectedItem();
+        String selectedPicklistItem2 = (String) comboBox2.getSelectedItem();
+        selectedOptions.append("First picklist selection: ").append(selectedPicklistItem1).append("<br>");
+        selectedOptions.append("Second picklist selection: ").append(selectedPicklistItem2).append("</html>");
 
-        if (anySelected || selectedPicklistItem != null) {
+        if (anySelected || selectedPicklistItem1 != null || selectedPicklistItem2 != null) {
             int response = JOptionPane.showConfirmDialog(
                 this,
                 selectedOptions.toString(),
@@ -117,7 +121,8 @@ public class PolitesGui extends JFrame {
                 for (String label : selectedLabels) {
                     System.out.println(label);
                 }
-                System.out.println("Picklist selection: " + selectedPicklistItem);
+                System.out.println("First picklist selection: " + selectedPicklistItem1);
+                System.out.println("Second picklist selection: " + selectedPicklistItem2);
             } else {
                 System.out.println("User canceled operation.");
             }
