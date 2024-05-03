@@ -4,71 +4,103 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class PolitesGui extends JFrame {
-    private JCheckBox[] checkboxes;
     private JCheckBox selectAllCheckbox;
-    private JComboBox<String> comboBox1, comboBox2;
+    private JCheckBox burnEverythingToTheGround;
+    private JCheckBox createDatabase;
+    private JCheckBox createDatabaseUsers;
+    private JCheckBox createTables;
+    private JCheckBox createCDMSourceRecord;
+    private JCheckBox loadTerminology;
+    private JCheckBox createSequencesForPrimaryKeys;
+    private JCheckBox createIndexes;
+    private JCheckBox addConstraints;
+    private JComboBox<String> databaseType, cdmVersion;
     private JButton goButton;
 
     public PolitesGui() {
-        super("Checkbox Application");
+        super("Polites");
 
         // Set up the JFrame with BorderLayout
         setLayout(new BorderLayout());
 
-        // List of checkbox labels
-        String[] labels = {
-            "Burn Everything to the Ground",
-            "Create Database",
-            "Create Database Users",
-            "Create Tables",
-            "Create CDM Source Record",
-            "Load Terminology",
-            "Create Sequences for Primary Keys",
-            "Create Indexes",
-            "Add Constraints"
-        };
+        // Initialize checkboxes
+        burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
+        createDatabase = new JCheckBox("Create Database");
+        createDatabaseUsers = new JCheckBox("Create Database Users");
+        createTables = new JCheckBox("Create Tables");
+        createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
+        loadTerminology = new JCheckBox("Load Terminology");
+        createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
+        createIndexes = new JCheckBox("Create Indexes");
+        addConstraints = new JCheckBox("Add Constraints");
 
-        // Initialize the checkboxes
-        checkboxes = new JCheckBox[labels.length];
         JPanel checkboxPanel = new JPanel();
         checkboxPanel.setLayout(new BoxLayout(checkboxPanel, BoxLayout.Y_AXIS));
-        
+
         // Special checkbox for Select/Deselect All
         selectAllCheckbox = new JCheckBox("Select/Deselect All");
-        selectAllCheckbox.setForeground(Color.GRAY);  // Set the text color to gray to highlight it is special
+        selectAllCheckbox.setForeground(Color.GRAY);
         selectAllCheckbox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean selected = selectAllCheckbox.isSelected();
-                for (JCheckBox checkbox : checkboxes) {
-                    checkbox.setSelected(selected);
-                }
+                burnEverythingToTheGround.setSelected(selected);
+                createDatabase.setSelected(selected);
+                createDatabaseUsers.setSelected(selected);
+                createTables.setSelected(selected);
+                createCDMSourceRecord.setSelected(selected);
+                loadTerminology.setSelected(selected);
+                createSequencesForPrimaryKeys.setSelected(selected);
+                createIndexes.setSelected(selected);
+                addConstraints.setSelected(selected);
             }
         });
-        checkboxPanel.add(selectAllCheckbox);  // Add this checkbox at the top
+        checkboxPanel.add(selectAllCheckbox);
 
-        for (int i = 0; i < labels.length; i++) {
-            checkboxes[i] = new JCheckBox(labels[i]);
-            checkboxes[i].setAlignmentX(Component.LEFT_ALIGNMENT);
-            checkboxPanel.add(checkboxes[i]);
-        }
+        // Add individual checkboxes to the panel
+        checkboxPanel.add(burnEverythingToTheGround);
+        checkboxPanel.add(createDatabase);
+        checkboxPanel.add(createDatabaseUsers);
+        checkboxPanel.add(createTables);
+        checkboxPanel.add(createCDMSourceRecord);
+        checkboxPanel.add(loadTerminology);
+        checkboxPanel.add(createSequencesForPrimaryKeys);
+        checkboxPanel.add(createIndexes);
+        checkboxPanel.add(addConstraints);
 
         JScrollPane scrollPane = new JScrollPane(checkboxPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
-        // Create the combo boxes and button panel
-        JPanel controlPanel = new JPanel();
-        controlPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        String[] items = {"Option 1", "Option 2", "Option 3"};
-        comboBox1 = new JComboBox<>(items);
-        comboBox2 = new JComboBox<>(items); // Second combo box initialized with the same items
-        controlPanel.add(comboBox1);
-        controlPanel.add(comboBox2);
+        // Combo boxes and button panel
+        JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        databaseType = new JComboBox<>(new String[]{"sqlServer", "databricks"});
+        databaseType.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if ("sqlServer".equals(value)) {
+                    setText("SQL Server");
+                } else if ("databricks".equals(value)) {
+                    setText("Databricks");
+                }
+                return this;
+            }
+        });
+        cdmVersion = new JComboBox<>(new String[]{"cdm53"});
+        cdmVersion.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setText("CDM 5.3");
+                return this;
+            }
+        });
+        controlPanel.add(databaseType);
+        controlPanel.add(cdmVersion);
 
         goButton = new JButton("Go");
         goButton.addActionListener(new ActionListener() {
@@ -83,51 +115,43 @@ public class PolitesGui extends JFrame {
         add(controlPanel, BorderLayout.SOUTH);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(650, 325);  // Set the initial window size to 650 pixels wide by 325 pixels high
-        setLocationRelativeTo(null);  // Center the frame on the screen
+        setSize(650, 325);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
     private void handleGoButton() {
-        StringBuilder selectedOptions = new StringBuilder("<html>Selected Options:<br>");
-        ArrayList<String> selectedLabels = new ArrayList<>();
-        boolean anySelected = false;
+        // Build the confirmation message
+        StringBuilder confirmationMessage = new StringBuilder("You have selected:\n");
+        if (burnEverythingToTheGround.isSelected()) confirmationMessage.append("- Burn Everything to the Ground\n");
+        if (createDatabase.isSelected()) confirmationMessage.append("- Create Database\n");
+        if (createDatabaseUsers.isSelected()) confirmationMessage.append("- Create Database Users\n");
+        if (createTables.isSelected()) confirmationMessage.append("- Create Tables\n");
+        if (createCDMSourceRecord.isSelected()) confirmationMessage.append("- Create CDM Source Record\n");
+        if (loadTerminology.isSelected()) confirmationMessage.append("- Load Terminology\n");
+        if (createSequencesForPrimaryKeys.isSelected()) confirmationMessage.append("- Create Sequences for Primary Keys\n");
+        if (createIndexes.isSelected()) confirmationMessage.append("- Create Indexes\n");
+        if (addConstraints.isSelected()) confirmationMessage.append("- Add Constraints\n");
 
-        for (JCheckBox checkbox : checkboxes) {
-            if (checkbox.isSelected()) {
-                selectedOptions.append(checkbox.getText()).append("<br>");
-                selectedLabels.add(checkbox.getText());
-                anySelected = true;
-            }
-        }
+        confirmationMessage.append("Database Type: ").append(databaseType.getSelectedItem()).append("\n");
+        confirmationMessage.append("CDM Version: ").append(cdmVersion.getSelectedItem());
 
-        // Get the selected item from the first and second picklists
-        String selectedPicklistItem1 = (String) comboBox1.getSelectedItem();
-        String selectedPicklistItem2 = (String) comboBox2.getSelectedItem();
-        selectedOptions.append("First picklist selection: ").append(selectedPicklistItem1).append("<br>");
-        selectedOptions.append("Second picklist selection: ").append(selectedPicklistItem2).append("</html>");
-
-        if (anySelected || selectedPicklistItem1 != null || selectedPicklistItem2 != null) {
-            int response = JOptionPane.showConfirmDialog(
-                this,
-                selectedOptions.toString(),
-                "Confirm Selection",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.WARNING_MESSAGE
-            );
-
-            if (response == JOptionPane.OK_OPTION) {
-                System.out.println("User confirmed choices:");
-                for (String label : selectedLabels) {
-                    System.out.println(label);
-                }
-                System.out.println("First picklist selection: " + selectedPicklistItem1);
-                System.out.println("Second picklist selection: " + selectedPicklistItem2);
-            } else {
-                System.out.println("User canceled operation.");
-            }
+        int result = JOptionPane.showConfirmDialog(this, confirmationMessage.toString(), "Continue or Cancel", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            System.out.println("User chose to continue with the following selections:");
+            if (burnEverythingToTheGround.isSelected()) System.out.println("- Burn Everything to the Ground");
+            if (createDatabase.isSelected()) System.out.println("- Create Database");
+            if (createDatabaseUsers.isSelected()) System.out.println("- Create Database Users");
+            if (createTables.isSelected()) System.out.println("- Create Tables");
+            if (createCDMSourceRecord.isSelected()) System.out.println("- Create CDM Source Record");
+            if (loadTerminology.isSelected()) System.out.println("- Load Terminology");
+            if (createSequencesForPrimaryKeys.isSelected()) System.out.println("- Create Sequences for Primary Keys");
+            if (createIndexes.isSelected()) System.out.println("- Create Indexes");
+            if (addConstraints.isSelected()) System.out.println("- Add Constraints");
+            System.out.println("Database type selected: " + databaseType.getSelectedItem());
+            System.out.println("CDM version selected: " + cdmVersion.getSelectedItem());
         } else {
-            JOptionPane.showMessageDialog(this, "No options selected.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("User canceled the action.");
         }
     }
 
