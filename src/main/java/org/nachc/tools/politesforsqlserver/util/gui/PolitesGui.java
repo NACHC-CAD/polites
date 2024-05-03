@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PolitesGui extends JFrame {
+	
     private JCheckBox selectAllCheckbox;
     private JCheckBox burnEverythingToTheGround;
     private JCheckBox createDatabase;
@@ -20,12 +21,14 @@ public class PolitesGui extends JFrame {
     private JButton goButton;
 
     public PolitesGui() {
-        super("Polites");
 
-        // Set up the JFrame with BorderLayout
+    	super("Polites");
         setLayout(new BorderLayout());
 
-        // Initialize checkboxes
+        //
+        // checkboxes
+        //
+        
         burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
         createDatabase = new JCheckBox("Create Database");
         createDatabaseUsers = new JCheckBox("Create Database Users");
@@ -75,7 +78,10 @@ public class PolitesGui extends JFrame {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
-        // Combo boxes and button panel
+        //
+        // combo boxes and button panel
+        //
+        
         JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         databaseType = new JComboBox<>(new String[]{"sqlServer", "databricks"});
         databaseType.setRenderer(new DefaultListCellRenderer() {
@@ -111,15 +117,22 @@ public class PolitesGui extends JFrame {
         });
         controlPanel.add(goButton);
 
+        //
+        // final layout
+        //
+        
         add(scrollPane, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.SOUTH);
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(650, 325);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
+    //
+    // handler for go button
+    //
+    
     private void handleGoButton() {
         // Build the confirmation message
         StringBuilder confirmationMessage = new StringBuilder("You have selected:\n");
@@ -139,15 +152,33 @@ public class PolitesGui extends JFrame {
         int result = JOptionPane.showConfirmDialog(this, confirmationMessage.toString(), "Continue or Cancel", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
             System.out.println("User chose to continue with the following selections:");
-            if (burnEverythingToTheGround.isSelected()) System.out.println("- Burn Everything to the Ground");
-            if (createDatabase.isSelected()) System.out.println("- Create Database");
-            if (createDatabaseUsers.isSelected()) System.out.println("- Create Database Users");
-            if (createTables.isSelected()) System.out.println("- Create Tables");
-            if (createCDMSourceRecord.isSelected()) System.out.println("- Create CDM Source Record");
-            if (loadTerminology.isSelected()) System.out.println("- Load Terminology");
-            if (createSequencesForPrimaryKeys.isSelected()) System.out.println("- Create Sequences for Primary Keys");
-            if (createIndexes.isSelected()) System.out.println("- Create Indexes");
-            if (addConstraints.isSelected()) System.out.println("- Add Constraints");
+            if (burnEverythingToTheGround.isSelected()) {
+            	System.out.println("- Burn Everything to the Ground");
+            }
+            if (createDatabase.isSelected()) {
+            	System.out.println("- Create Database");
+            }
+            if (createDatabaseUsers.isSelected()) {
+            	System.out.println("- Create Database Users");
+            }
+            if (createTables.isSelected()) {
+            	System.out.println("- Create Tables");
+            }
+            if (createCDMSourceRecord.isSelected()) {
+            	System.out.println("- Create CDM Source Record");
+            }
+            if (loadTerminology.isSelected()) {
+            	System.out.println("- Load Terminology");
+            }
+            if (createSequencesForPrimaryKeys.isSelected()) {
+            	System.out.println("- Create Sequences for Primary Keys");
+            }
+            if (createIndexes.isSelected()) {
+            	System.out.println("- Create Indexes");
+            }
+            if (addConstraints.isSelected()) {
+            	System.out.println("- Add Constraints");
+            }
             System.out.println("Database type selected: " + databaseType.getSelectedItem());
             System.out.println("CDM version selected: " + cdmVersion.getSelectedItem());
         } else {
