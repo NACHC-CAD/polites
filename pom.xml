@@ -1,0 +1,247 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<version>1.0.001</version>
+	</properties>
+
+	<groupId>org.nachc.cad.tools</groupId>
+	<artifactId>polites-for-sqlserver</artifactId>
+	<version>${version}</version>
+
+	<packaging>jar</packaging>
+
+	<name>Polites for Sql Server</name>
+	<description>Utilities to setup CDM in Sql Server</description>
+	<url>https://github.com/greshje/polites-for-sqlserver</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<!-- 
+	*
+	* repositories
+	*
+	-->
+
+	<repositories>
+	
+		<repository>
+		  <id>ohdsi.snapshots</id>
+		  <name>repo.ohdsi.org-snapshots</name>
+		  <url>https://repo.ohdsi.org/nexus/content/repositories/snapshots</url>
+		  <releases>
+		      <enabled>false</enabled>
+		  </releases>
+		  <snapshots>
+		      <enabled>true</enabled>
+		  </snapshots>
+		</repository>	
+
+	</repositories>
+
+	<!-- 
+	*
+	* dependencies
+	*
+	-->
+
+	<dependencies>
+
+		<!-- CORE NACHC FRAMEWORK STUFF -->
+		<dependency>
+		    <groupId>org.nachc.cad.tools</groupId>
+		    <artifactId>fhirtoomop</artifactId>
+		    <version>1.5.031</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.nachc.cad.tools</groupId>
+			<artifactId>core</artifactId>
+			<version>1.1.024</version>
+		</dependency>
+
+		<!-- 
+		*
+		* BASIC TOOLS
+		*
+		* -->
+
+		<!-- LOMBOK (Lombok jar also needs to be added to Eclipse IDE) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- SLF4J LOGBACK CLASSIC https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.30</version>
+		</dependency>
+
+		<!-- JUNIT https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JUNIT-TOOLBOX https://mvnrepository.com/artifact/com.googlecode.junit-toolbox/junit-toolbox -->
+		<dependency>
+			<groupId>com.googlecode.junit-toolbox</groupId>
+			<artifactId>junit-toolbox</artifactId>
+			<version>2.4</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- POSTGRESQL DRIVER https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.3.6</version>
+		</dependency>
+
+		<!-- MS SQL SERVER DRIVER https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>12.6.1.jre11</version>
+		</dependency>
+
+	</dependencies>
+
+	<!-- 
+	*
+	* build
+	*
+	-->
+
+	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<pluginManagement>
+			<plugins>
+				<!-- compiler -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+						<release>11</release>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+
+			<!-- include dependencies in the jar files -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/vsac-to-ohdsi/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- copy the auth directory -->
+			<!--
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-resources-plugin</artifactId>
+			    <version>3.2.0</version>
+			    <executions>
+			        <execution>
+			            <id>copy-auth-folder</id>
+			            <phase>process-resources</phase>
+			            <goals>
+			                <goal>copy-resources</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>${basedir}/target/vsac-to-ohdsi/auth</outputDirectory>
+			                <resources>
+			                    <resource>
+			                        <directory>${basedir}/_ETC/auth</directory>
+			                        <filtering>true</filtering>
+			                        <includes>
+			                            <include>**/*</include>
+			                        </includes>
+			                    </resource>
+			                </resources>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+			-->
+			
+			<!-- create the jar file -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>org.nachc.tools.politesforsqlserver.util.gui.PolitesGui</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>. ./lib/SparkJDBC42.jar ./lib/SqlRender-1.9.2-SNAPSHOT.jar</Class-Path>
+						</manifestEntries>
+					</archive>
+					<finalName>vsac-to-ohdsi/vsac-to-ohdsi</finalName>
+				</configuration>
+			</plugin>
+
+			<!-- don't run the integration tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
+
