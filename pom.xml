@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<version>1.0.001</version>
+		<version>1.0.002</version>
 	</properties>
 
 	<groupId>org.nachc.cad.tools</groupId>
@@ -58,13 +58,13 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.5.031</version>
+		    <version>1.6.007</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.nachc.cad.tools</groupId>
 			<artifactId>core</artifactId>
-			<version>1.1.024</version>
+			<version>1.1.031</version>
 		</dependency>
 
 		<!-- 
@@ -122,7 +122,7 @@
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
-			<version>12.6.1.jre11</version>
+			<version>12.6.2.jre11</version>
 		</dependency>
 
 	</dependencies>

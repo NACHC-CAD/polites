@@ -41,10 +41,6 @@ public class PolitesGui extends JFrame {
 	private JComboBox<String> databaseType, cdmVersion;
 	private JButton goButton;
 
-	public static void main(String[] args) {
-		new PolitesGui();
-	}
-	
 	public PolitesGui() {
 
 		super("Polites");
