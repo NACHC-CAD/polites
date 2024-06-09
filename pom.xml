@@ -7,7 +7,7 @@
 	</properties>
 
 	<groupId>org.nachc.cad.tools</groupId>
-	<artifactId>polites-for-sqlserver</artifactId>
+	<artifactId>polites</artifactId>
 	<version>${version}</version>
 
 	<packaging>jar</packaging>

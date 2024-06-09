@@ -1,4 +1,4 @@
-package org.nachc.tools.politesforsqlserver.util.gui;
+package org.nachc.tools.polites.util.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.nachc.tools.politesforsqlserver.util.action.ExecutePolitesGoAction;
+import org.nachc.tools.polites.util.action.ExecutePolitesGoAction;
 import org.yaorma.util.time.Timer;
 
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +38,10 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createSequencesForPrimaryKeys;
 	private JCheckBox createIndexes;
 	private JCheckBox addConstraints;
+	private JCheckBox disableConstraints;
+	private JCheckBox enableConstraints;
+	private JCheckBox loadSyntheaCsv;
+	private JCheckBox runAchilles;
 	private JComboBox<String> databaseType, cdmVersion;
 	private JButton goButton;
 
@@ -59,6 +63,10 @@ public class PolitesGui extends JFrame {
 		createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
 		createIndexes = new JCheckBox("Create Indexes");
 		addConstraints = new JCheckBox("Add Constraints");
+		disableConstraints = new JCheckBox("Disable Constraints");
+		enableConstraints = new JCheckBox("Enable Constraints");
+		loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
+		runAchilles = new JCheckBox("Run Achilles");
 
 		JPanel checkboxPanel = new JPanel();
 		checkboxPanel.setLayout(new BoxLayout(checkboxPanel, BoxLayout.Y_AXIS));
@@ -79,6 +87,10 @@ public class PolitesGui extends JFrame {
 				createSequencesForPrimaryKeys.setSelected(selected);
 				createIndexes.setSelected(selected);
 				addConstraints.setSelected(selected);
+				disableConstraints.setSelected(selected);
+				enableConstraints.setSelected(selected);
+				loadSyntheaCsv.setSelected(selected);
+				runAchilles.setSelected(selected);
 			}
 		});
 		checkboxPanel.add(selectAllCheckbox);
@@ -93,6 +105,10 @@ public class PolitesGui extends JFrame {
 		checkboxPanel.add(createSequencesForPrimaryKeys);
 		checkboxPanel.add(createIndexes);
 		checkboxPanel.add(addConstraints);
+		checkboxPanel.add(disableConstraints);
+		checkboxPanel.add(enableConstraints);
+		checkboxPanel.add(loadSyntheaCsv);
+		checkboxPanel.add(runAchilles);
 
 		JScrollPane scrollPane = new JScrollPane(checkboxPanel);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -147,7 +163,7 @@ public class PolitesGui extends JFrame {
 		add(scrollPane, BorderLayout.CENTER);
 		add(controlPanel, BorderLayout.SOUTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(650, 325);
+		setSize(650, 450);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
@@ -177,6 +193,14 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Create Indexes\n");
 		if (addConstraints.isSelected())
 			confirmationMessage.append("- Add Constraints\n");
+		if(disableConstraints.isSelected())
+			confirmationMessage.append("- Disable Constraints\n");
+		if(enableConstraints.isSelected())
+			confirmationMessage.append("- Enable Constraints\n");
+		if(loadSyntheaCsv.isSelected())
+			confirmationMessage.append("- Load Synthea CSV\n");
+		if(runAchilles.isSelected())
+			confirmationMessage.append("- Run Achilles\n");
 
 		confirmationMessage.append("Database Type: ").append(databaseType.getSelectedItem()).append("\n");
 		confirmationMessage.append("CDM Version: ").append(cdmVersion.getSelectedItem());
@@ -223,11 +247,27 @@ public class PolitesGui extends JFrame {
 				log.info("- Add Constraints");
 				sel.add("addConstraints");
 			}
+			if (disableConstraints.isSelected()) {
+				log.info("- Disable Constraints");
+				sel.add("disableConstraints");
+			}
+			if (enableConstraints.isSelected()) {
+				log.info("- Enable Constraints");
+				sel.add("enableConstraints");
+			}
+			if (loadSyntheaCsv.isSelected()) {
+				log.info("- Load Synthea CSV");
+				sel.add("loadSyntheaCsv");
+			}
+			if (runAchilles.isSelected()) {
+				log.info("- Run Achilles");
+				sel.add("runAchilles");
+			}
 			log.info("Database type selected: " + databaseType.getSelectedItem());
 			log.info("CDM version selected: " + cdmVersion.getSelectedItem());
 			log.info("----------------------------------");
 			log.info("CALLING ACTION...");
-			ExecutePolitesGoAction.exec(sel,databaseType.getSelectedItem()+"",cdmVersion.getSelectedItem()+"");
+			ExecutePolitesGoAction.exec(sel, databaseType.getSelectedItem() + "", cdmVersion.getSelectedItem() + "");
 			log.info("DONE WITH ACTION:");
 			timer.stop();
 			String msg = "";

@@ -1,4 +1,4 @@
-package org.nachc.tools.politesforsqlserver.util.connection;
+package org.nachc.tools.polites.util.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
