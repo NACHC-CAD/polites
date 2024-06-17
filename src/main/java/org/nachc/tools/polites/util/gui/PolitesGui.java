@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -29,19 +30,25 @@ import lombok.extern.slf4j.Slf4j;
 public class PolitesGui extends JFrame {
 
 	private JCheckBox selectAllCheckbox;
-	private JCheckBox burnEverythingToTheGround;
-	private JCheckBox createDatabase;
-	private JCheckBox createDatabaseUsers;
-	private JCheckBox createTables;
-	private JCheckBox createCDMSourceRecord;
-	private JCheckBox loadTerminology;
-	private JCheckBox createSequencesForPrimaryKeys;
-	private JCheckBox createIndexes;
-	private JCheckBox addConstraints;
-	private JCheckBox disableConstraints;
-	private JCheckBox enableConstraints;
-	private JCheckBox loadSyntheaCsv;
-	private JCheckBox runAchilles;
+	private JCheckBox burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
+	private JCheckBox createDatabase = new JCheckBox("Create Database");
+	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
+	private JCheckBox createTables = new JCheckBox("Create Tables");
+	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
+	private JCheckBox loadTerminology = new JCheckBox("Load Terminology");
+	private JCheckBox createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
+	private JCheckBox createIndexes = new JCheckBox("Create Indexes");
+	private JCheckBox addConstraints = new JCheckBox("Add Constraints");
+	private JCheckBox disableConstraints = new JCheckBox("Disable Constraints");
+	private JCheckBox enableConstraints = new JCheckBox("Enable Constraints");
+	private JCheckBox truncateDataTables = new JCheckBox("Truncate (Data Tables Only)");
+	private JCheckBox importDataTables = new JCheckBox("Import (Data Tables Only)");
+	private JCheckBox exportDataTables = new JCheckBox("Export (Data Tables Only)");
+	private JCheckBox truncateAll = new JCheckBox("Truncate All CDM Tables");
+	private JCheckBox importAll = new JCheckBox("Import All CDM Tables");
+	private JCheckBox exportAll = new JCheckBox("Export All CDM Tables");
+	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
+	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	private JComboBox<String> databaseType, cdmVersion;
 	private JButton goButton;
 
@@ -53,20 +60,6 @@ public class PolitesGui extends JFrame {
 		//
 		// checkboxes
 		//
-
-		burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
-		createDatabase = new JCheckBox("Create Database");
-		createDatabaseUsers = new JCheckBox("Create Database Users");
-		createTables = new JCheckBox("Create Tables");
-		createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
-		loadTerminology = new JCheckBox("Load Terminology");
-		createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
-		createIndexes = new JCheckBox("Create Indexes");
-		addConstraints = new JCheckBox("Add Constraints");
-		disableConstraints = new JCheckBox("Disable Constraints");
-		enableConstraints = new JCheckBox("Enable Constraints");
-		loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
-		runAchilles = new JCheckBox("Run Achilles");
 
 		JPanel checkboxPanel = new JPanel();
 		checkboxPanel.setLayout(new BoxLayout(checkboxPanel, BoxLayout.Y_AXIS));
@@ -89,14 +82,24 @@ public class PolitesGui extends JFrame {
 				addConstraints.setSelected(selected);
 				disableConstraints.setSelected(selected);
 				enableConstraints.setSelected(selected);
+				truncateDataTables.setSelected(selected);
+				importDataTables.setSelected(selected);
+				exportDataTables.setSelected(selected);
+				truncateAll.setSelected(selected);
+				importAll.setSelected(selected);
+				exportAll.setSelected(selected);
 				loadSyntheaCsv.setSelected(selected);
 				runAchilles.setSelected(selected);
 			}
 		});
-		checkboxPanel.add(selectAllCheckbox);
-
+		// select
+		GroupPanel selectGroup = new GroupPanel(checkboxPanel, "Select");
+		selectGroup.add(selectAllCheckbox);
 		// Add individual checkboxes to the panel
-		checkboxPanel.add(burnEverythingToTheGround);
+		GroupPanel burnGroup = new GroupPanel(checkboxPanel, "Reset");
+		burnGroup.add(burnEverythingToTheGround);
+
+		// createDatabase
 		checkboxPanel.add(createDatabase);
 		checkboxPanel.add(createDatabaseUsers);
 		checkboxPanel.add(createTables);
@@ -107,6 +110,12 @@ public class PolitesGui extends JFrame {
 		checkboxPanel.add(addConstraints);
 		checkboxPanel.add(disableConstraints);
 		checkboxPanel.add(enableConstraints);
+		checkboxPanel.add(truncateDataTables);
+		checkboxPanel.add(importDataTables);
+		checkboxPanel.add(exportDataTables);
+		checkboxPanel.add(truncateAll);
+		checkboxPanel.add(importAll);
+		checkboxPanel.add(exportAll);
 		checkboxPanel.add(loadSyntheaCsv);
 		checkboxPanel.add(runAchilles);
 
@@ -163,7 +172,7 @@ public class PolitesGui extends JFrame {
 		add(scrollPane, BorderLayout.CENTER);
 		add(controlPanel, BorderLayout.SOUTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(650, 450);
+		setSize(550, 650);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
@@ -193,13 +202,13 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Create Indexes\n");
 		if (addConstraints.isSelected())
 			confirmationMessage.append("- Add Constraints\n");
-		if(disableConstraints.isSelected())
+		if (disableConstraints.isSelected())
 			confirmationMessage.append("- Disable Constraints\n");
-		if(enableConstraints.isSelected())
+		if (enableConstraints.isSelected())
 			confirmationMessage.append("- Enable Constraints\n");
-		if(loadSyntheaCsv.isSelected())
+		if (loadSyntheaCsv.isSelected())
 			confirmationMessage.append("- Load Synthea CSV\n");
-		if(runAchilles.isSelected())
+		if (runAchilles.isSelected())
 			confirmationMessage.append("- Run Achilles\n");
 
 		confirmationMessage.append("Database Type: ").append(databaseType.getSelectedItem()).append("\n");
