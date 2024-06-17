@@ -3,7 +3,7 @@ package org.nachc.tools.politesforsqlserver.util.action;
 import java.sql.Connection;
 
 import org.junit.Test;
-import org.nachc.tools.politesforsqlserver.util.connection.PolitesConnectionFactory;
+import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Data;
 import org.yaorma.database.Database;
 import org.yaorma.database.Row;

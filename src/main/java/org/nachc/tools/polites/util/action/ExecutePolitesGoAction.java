@@ -1,4 +1,4 @@
-package org.nachc.tools.politesforsqlserver.util.action;
+package org.nachc.tools.polites.util.action;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -13,10 +13,12 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabaseUser;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateFhirResoureTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateSequencesForPrimaryKeys;
+import org.nachc.tools.fhirtoomop.tools.build.impl.DisableConstraints;
+import org.nachc.tools.fhirtoomop.tools.build.impl.EnableConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
-import org.nachc.tools.politesforsqlserver.util.connection.PolitesConnectionFactory;
+import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,29 +31,30 @@ public class ExecutePolitesGoAction {
 		try {
 			if (sel.contains("burnEverythingToTheGround")) {
 				// delete the existing instance
-				log.info("BURNING EVERYTHING TO THE GROUND");
+				log("BURNING EVERYTHING TO THE GROUND");
 				BurnEverythingToTheGround.exec(conn);
 			}
 			if (sel.contains("createDatabase")) {
 				// create the new database
-				log.info("CREATING DATABASE");
-				log.info("Creating OMOP instance...");
+				log("CREATING DATABASE");
+				log("Creating OMOP instance...");
 				CreateDatabase.exec(conn);
 			}
 			if (sel.contains("createDatabaseUsers")) {
 				// create the user
-				log.info("CREATING USER");
+				log("CREATING USER");
 				CreateDatabaseUser.exec(conn);
 			}
 			if (sel.contains("createTables")) {
 				// create the tables
-				log.info("CREATING TABLES");
+				log("CREATING TABLES");
 				CreateDatabaseTables.exec(conn);
 				CreateFhirResoureTables.exec(conn);
 				CreateMappingTables.exec(conn);
 			}
 			if (sel.contains("createCDMSourceRecord")) {
 				// create the cdm_source record (uses app.parameters values)
+				log("CREATING CDM RECORD");
 				CreateCdmSourceRecord.exec(conn);
 				Database.commit(conn);
 			}
@@ -60,28 +63,62 @@ public class ExecutePolitesGoAction {
 				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
 				raceFiles.exec();
 				// load the terminologies
-				log.info("LOADING TERMINOLOGY");
+				log("LOADING TERMINOLOGY");
 				LoadMappingTables.exec(raceFiles.getSqlFile(), conn);
 				LoadTerminology.exec(conn);
 			}
 			if (sel.contains("createSequencesForPrimaryKeys")) {
 				// create the sequences
-				log.info("CREATING SEQUENCES");
+				log("CREATING SEQUENCES");
 				CreateSequencesForPrimaryKeys.exec(conn);
 			}
 			if (sel.contains("createIndexes")) {
 				// create the indexes and add constraints
-				log.info("CREATING CONSTRAINTS");
+				log("CREATING CONSTRAINTS");
 				CreateDatabaseIndexes.exec(conn);
 			}
 			if (sel.contains("addConstraints")) {
 				// create the indexes and add constraints
-				log.info("ADDING CONSTRAINTS");
+				log("ADDING CONSTRAINTS");
 				AddConstraints.exec();
 			}
+
+		
+			if (sel.contains("disableConstraints")) {
+				// create the indexes and add constraints
+				log("DISABLING CONSTRAINTS");
+				DisableConstraints.exec(conn);
+			}
+			if (sel.contains("enableConstraints")) {
+				// create the indexes and add constraints
+				log("ENABLING CONSTRAINTS");
+				EnableConstraints.exec(conn);
+			}
+			if (sel.contains("uploadSyntheaCsv")) {
+				// create the indexes and add constraints
+				log("UPLOADING SYNTHEA CSV");
+
+			}
+			if (sel.contains("runAchilles")) {
+				// create the indexes and add constraints
+				log("RUNNING ACHILLES");
+
+			}
+		
+		
 		} finally {
 			Database.close(conn);
 		}
 	}
 
+	private static void log(String msg) {
+		String str = "\n\n\n";
+		str += "* * *\n";
+		str += "* \n";
+		str += "* " + msg + "\n";
+		str += "* \n";
+		str += "* * * \n\n";
+		log.info(str);
+	}
+	
 }
