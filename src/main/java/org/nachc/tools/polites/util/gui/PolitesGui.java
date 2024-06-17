@@ -36,6 +36,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology");
+	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
 	private JCheckBox createIndexes = new JCheckBox("Create Indexes");
 	private JCheckBox addConstraints = new JCheckBox("Add Constraints");
@@ -77,6 +78,7 @@ public class PolitesGui extends JFrame {
 				createTables.setSelected(selected);
 				createCDMSourceRecord.setSelected(selected);
 				loadTerminology.setSelected(selected);
+				truncateTerminology.setSelected(selected);
 				createSequencesForPrimaryKeys.setSelected(selected);
 				createIndexes.setSelected(selected);
 				addConstraints.setSelected(selected);
@@ -95,29 +97,42 @@ public class PolitesGui extends JFrame {
 		// select
 		GroupPanel selectGroup = new GroupPanel(checkboxPanel, "Select");
 		selectGroup.add(selectAllCheckbox);
-		// Add individual checkboxes to the panel
+		// reset
 		GroupPanel burnGroup = new GroupPanel(checkboxPanel, "Reset");
 		burnGroup.add(burnEverythingToTheGround);
-
-		// createDatabase
-		checkboxPanel.add(createDatabase);
-		checkboxPanel.add(createDatabaseUsers);
-		checkboxPanel.add(createTables);
-		checkboxPanel.add(createCDMSourceRecord);
-		checkboxPanel.add(loadTerminology);
-		checkboxPanel.add(createSequencesForPrimaryKeys);
-		checkboxPanel.add(createIndexes);
-		checkboxPanel.add(addConstraints);
-		checkboxPanel.add(disableConstraints);
-		checkboxPanel.add(enableConstraints);
-		checkboxPanel.add(truncateDataTables);
-		checkboxPanel.add(importDataTables);
-		checkboxPanel.add(exportDataTables);
-		checkboxPanel.add(truncateAll);
-		checkboxPanel.add(importAll);
-		checkboxPanel.add(exportAll);
-		checkboxPanel.add(loadSyntheaCsv);
-		checkboxPanel.add(runAchilles);
+		// create database
+		GroupPanel createGroup = new GroupPanel(checkboxPanel, "Create Database Objects");
+		createGroup.add(createDatabase);
+		createGroup.add(createDatabaseUsers);
+		createGroup.add(createTables);
+		createGroup.add(createCDMSourceRecord);
+		// terminology
+		GroupPanel terminology = new GroupPanel(checkboxPanel, "Terminology");
+		terminology.add(truncateTerminology);
+		terminology.add(loadTerminology);
+		// sequences, indexes, and constraints
+		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
+		seqIndCon.add(createSequencesForPrimaryKeys);
+		seqIndCon.add(createIndexes);
+		seqIndCon.add(addConstraints);
+		seqIndCon.add(disableConstraints);
+		seqIndCon.add(enableConstraints);
+		// truncate, import, export data tables (does not include terminology tables)
+		GroupPanel impExpDataTables = new GroupPanel(checkboxPanel, "Truncate, Import, and Export Data Tables (Does Not Include Terminology Tables)");
+		impExpDataTables.add(truncateDataTables);
+		impExpDataTables.add(importDataTables);
+		impExpDataTables.add(exportDataTables);
+		// truncate, import, export data tables (includes terminology tables)
+		GroupPanel impExpAllTables = new GroupPanel(checkboxPanel, "Truncate, Import, and Export All Tables (Includes Terminology Tables)");
+		impExpAllTables.add(truncateAll);
+		impExpAllTables.add(importAll);
+		impExpAllTables.add(exportAll);
+		// load synthea data
+		GroupPanel loadSynthea = new GroupPanel(checkboxPanel, "Load Synthea CSV Files");
+		loadSynthea.add(loadSyntheaCsv);
+		// run achilles
+		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
+		runAchillesGroup.add(runAchilles);
 
 		JScrollPane scrollPane = new JScrollPane(checkboxPanel);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
