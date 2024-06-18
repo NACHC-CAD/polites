@@ -49,6 +49,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox importAll = new JCheckBox("Import All CDM Tables");
 	private JCheckBox exportAll = new JCheckBox("Export All CDM Tables");
 	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
+	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	private JComboBox<String> databaseType, cdmVersion;
 	private JButton goButton;
@@ -91,6 +92,7 @@ public class PolitesGui extends JFrame {
 				importAll.setSelected(selected);
 				exportAll.setSelected(selected);
 				loadSyntheaCsv.setSelected(selected);
+				addWebApiRecords.setSelected(selected);
 				runAchilles.setSelected(selected);
 			}
 		});
@@ -132,6 +134,7 @@ public class PolitesGui extends JFrame {
 		loadSynthea.add(loadSyntheaCsv);
 		// run achilles
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
+		runAchillesGroup.add(addWebApiRecords);
 		runAchillesGroup.add(runAchilles);
 
 		JScrollPane scrollPane = new JScrollPane(checkboxPanel);
