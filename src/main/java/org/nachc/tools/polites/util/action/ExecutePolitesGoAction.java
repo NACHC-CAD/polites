@@ -1,5 +1,6 @@
 package org.nachc.tools.polites.util.action;
 
+import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -18,9 +19,12 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.EnableConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
+import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
+
+import com.nach.core.util.file.FileUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -64,12 +68,23 @@ public class ExecutePolitesGoAction {
 			if (sel.contains("loadTerminology")) {
 				// load the terminologies
 				log("LOADING TERMINOLOGY");
-				// move the race eth files
-				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
-				raceFiles.exec();
 				use(conn);
+				// move the race eth files
+				String destDir = AppParams.getTerminologyRootDir();
+				File dir = new File(destDir).getParentFile();
+				String dirName = FileUtil.getCanonicalPath(dir);
+				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
+				raceFiles.exec(dirName);
+				// load the race eth file
+				log.info("Loading mapping tables...");
 				LoadMappingTables.exec(raceFiles.getSqlFile(), conn);
+				// download terminology
+				log.info("Checking for default terminology...");
+				DownloadDefaultTerminology.exec();
+				// load terminology
+				log.info("Loading terminology...");
 				LoadTerminology.exec(conn);
+				log.info("Done loading terminology.");
 			}
 			if (sel.contains("createSequencesForPrimaryKeys")) {
 				// create the sequences
