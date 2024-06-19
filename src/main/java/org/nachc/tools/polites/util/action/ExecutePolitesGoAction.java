@@ -104,8 +104,6 @@ public class ExecutePolitesGoAction {
 				use(conn);
 				AddConstraints.exec();
 			}
-
-		
 			if (sel.contains("disableConstraints")) {
 				// create the indexes and add constraints
 				log("DISABLING CONSTRAINTS");
@@ -147,7 +145,7 @@ public class ExecutePolitesGoAction {
 	
 	private static void use(Connection conn) {
 		log.info("Setting default schema...");
-		String schemaName = AppParams.getSchemaName();
+		String schemaName = AppParams.getDatabaseName();
 		Database.update("use " + schemaName, conn);		
 		log.info("Using: " + schemaName);
 	}
