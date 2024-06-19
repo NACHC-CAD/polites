@@ -29,6 +29,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PolitesGui extends JFrame {
 
+	// ---
+	// CREATE CHECK BOXES
+	// ---
+	
 	private JCheckBox selectAllCheckbox;
 	private JCheckBox burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
 	private JCheckBox createDatabase = new JCheckBox("Create Database");
@@ -72,6 +76,9 @@ public class PolitesGui extends JFrame {
 		selectAllCheckbox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// ---
+				// ADD TO SELECT ALL
+				// --
 				boolean selected = selectAllCheckbox.isSelected();
 				burnEverythingToTheGround.setSelected(selected);
 				createDatabase.setSelected(selected);
@@ -96,6 +103,11 @@ public class PolitesGui extends JFrame {
 				runAchilles.setSelected(selected);
 			}
 		});
+		
+		// ---
+		// ADD TO GUI
+		// ---
+		
 		// select
 		GroupPanel selectGroup = new GroupPanel(checkboxPanel, "Select");
 		selectGroup.add(selectAllCheckbox);
@@ -183,9 +195,9 @@ public class PolitesGui extends JFrame {
 		});
 		controlPanel.add(goButton);
 
-		//
-		// final layout
-		//
+		// ---
+		// FINAL LAYOUT
+		// ---
 
 		add(scrollPane, BorderLayout.CENTER);
 		add(controlPanel, BorderLayout.SOUTH);
@@ -200,10 +212,14 @@ public class PolitesGui extends JFrame {
 	//
 
 	private void handleGoButton() {
+		// ---
 		// Build the confirmation message
+		// ---
 		StringBuilder confirmationMessage = new StringBuilder("You have selected:\n");
+		// reset
 		if (burnEverythingToTheGround.isSelected())
 			confirmationMessage.append("- Burn Everything to the Ground\n");
+		// create database objects
 		if (createDatabase.isSelected())
 			confirmationMessage.append("- Create Database\n");
 		if (createDatabaseUsers.isSelected())
@@ -212,8 +228,12 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Create Tables\n");
 		if (createCDMSourceRecord.isSelected())
 			confirmationMessage.append("- Create CDM Source Record\n");
+		// terminology
+		if (truncateTerminology.isSelected())
+			confirmationMessage.append("- Truncate Terminology\n");
 		if (loadTerminology.isSelected())
 			confirmationMessage.append("- Load Terminology\n");
+		// sequences, indexes, and constraints
 		if (createSequencesForPrimaryKeys.isSelected())
 			confirmationMessage.append("- Create Sequences for Primary Keys\n");
 		if (createIndexes.isSelected())
@@ -224,8 +244,15 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Disable Constraints\n");
 		if (enableConstraints.isSelected())
 			confirmationMessage.append("- Enable Constraints\n");
+		// truncate, import, and export data tables
+		if(truncateDataTables.isSelected())
+			confirmationMessage.append("- Truncate Data Tables\n");
 		if (loadSyntheaCsv.isSelected())
 			confirmationMessage.append("- Load Synthea CSV\n");
+		// truncate, import, and export all tables
+		if(truncateAll.isSelected())
+			confirmationMessage.append("- Truncate All Tables\n");
+		// run achilles
 		if (runAchilles.isSelected())
 			confirmationMessage.append("- Run Achilles\n");
 
@@ -238,10 +265,12 @@ public class PolitesGui extends JFrame {
 			timer.start();
 			ArrayList<String> sel = new ArrayList<String>();
 			log.info("User chose to continue with the following selections:");
+			// reset
 			if (burnEverythingToTheGround.isSelected()) {
 				log.info("- Burn Everything to the Ground");
 				sel.add("burnEverythingToTheGround");
 			}
+			// create database objects
 			if (createDatabase.isSelected()) {
 				log.info("- Create Database");
 				sel.add("createDatabase");
@@ -258,10 +287,16 @@ public class PolitesGui extends JFrame {
 				log.info("- Create CDM Source Record");
 				sel.add("createCDMSourceRecord");
 			}
+			// terminology
+			if (truncateTerminology.isSelected()) {
+				log.info("- Truncate Terminology");
+				sel.add("truncateTerminology");
+			}
 			if (loadTerminology.isSelected()) {
 				log.info("- Load Terminology");
 				sel.add("loadTerminology");
 			}
+			// sequences, indexes, and constraints
 			if (createSequencesForPrimaryKeys.isSelected()) {
 				log.info("- Create Sequences for Primary Keys");
 				sel.add("createSequencesForPrimaryKeys");
@@ -282,10 +317,22 @@ public class PolitesGui extends JFrame {
 				log.info("- Enable Constraints");
 				sel.add("enableConstraints");
 			}
+			// truncate, import, and export data tables
+			if (truncateDataTables.isSelected()) {
+				log.info("- Truncate Data Tables");
+				sel.add("truncateDataTables");
+			}		
+			// truncate, import, and export all tables
+			if (truncateAll.isSelected()) {
+				log.info("- Truncate all Tables");
+				sel.add("truncateAll");
+			}		
+			// load synthea
 			if (loadSyntheaCsv.isSelected()) {
 				log.info("- Load Synthea CSV");
 				sel.add("loadSyntheaCsv");
 			}
+			// run achilles
 			if (runAchilles.isSelected()) {
 				log.info("- Run Achilles");
 				sel.add("runAchilles");

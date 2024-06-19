@@ -20,6 +20,7 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
+import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
@@ -34,24 +35,22 @@ public class ExecutePolitesGoAction {
 	public static void exec(ArrayList<String> sel, String databaseType, String cdmVersion) {
 		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
 		try {
+			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
-				// delete the existing instance
 				log("BURNING EVERYTHING TO THE GROUND");
 				BurnEverythingToTheGround.exec(conn);
 			}
+			// create database objects
 			if (sel.contains("createDatabase")) {
-				// create the new database
 				log("CREATING DATABASE");
 				log("Creating OMOP instance...");
 				CreateDatabase.exec(conn);
 			}
 			if (sel.contains("createDatabaseUsers")) {
-				// create the user
 				log("CREATING USER");
 				CreateDatabaseUser.exec(conn);
 			}
 			if (sel.contains("createTables")) {
-				// create the tables
 				log("CREATING TABLES");
 				use(conn);
 				CreateDatabaseTables.exec(conn);
@@ -59,14 +58,18 @@ public class ExecutePolitesGoAction {
 				CreateMappingTables.exec(conn);
 			}
 			if (sel.contains("createCDMSourceRecord")) {
-				// create the cdm_source record (uses app.parameters values)
 				log("CREATING CDM RECORD");
 				use(conn);
 				CreateCdmSourceRecord.exec(conn);
 				Database.commit(conn);
 			}
+			// terminology
+			if(sel.contains("truncateTerminology")) {
+				log("TRUNCATING TERMINOLOGY");
+				TruncateCdmTables.truncateVocabularyTables();
+				log.info("Done truncating.");
+			}
 			if (sel.contains("loadTerminology")) {
-				// load the terminologies
 				log("LOADING TERMINOLOGY");
 				use(conn);
 				// move the race eth files
@@ -86,43 +89,50 @@ public class ExecutePolitesGoAction {
 				LoadTerminology.exec(conn);
 				log.info("Done loading terminology.");
 			}
+			// sequences, indexes, and constraints
 			if (sel.contains("createSequencesForPrimaryKeys")) {
-				// create the sequences
 				log("CREATING SEQUENCES");
 				use(conn);
 				CreateSequencesForPrimaryKeys.exec(conn);
 			}
 			if (sel.contains("createIndexes")) {
-				// create the indexes and add constraints
 				log("CREATING CONSTRAINTS");
 				use(conn);
 				CreateDatabaseIndexes.exec(conn);
 			}
 			if (sel.contains("addConstraints")) {
-				// create the indexes and add constraints
 				log("ADDING CONSTRAINTS");
 				use(conn);
 				AddConstraints.exec();
 			}
 			if (sel.contains("disableConstraints")) {
-				// create the indexes and add constraints
 				log("DISABLING CONSTRAINTS");
 				use(conn);
 				DisableConstraints.exec(conn);
 			}
 			if (sel.contains("enableConstraints")) {
-				// create the indexes and add constraints
 				log("ENABLING CONSTRAINTS");
 				use(conn);
 				EnableConstraints.exec(conn);
 			}
+			// truncate, import, and export data tables
+			if(sel.contains("truncateDataTables")) {
+				log("TRUNCATING DATA TABLES");
+				TruncateCdmTables.truncateDataTables();
+				log.info("Done truncating.");
+			}
+			// truncate, import, and export all tables
+			if(sel.contains("truncateAll")) {
+				log("TRUNCATING ALL TABLES");
+				TruncateCdmTables.truncateAllTables();
+				log.info("Done truncating.");
+			}
+			// load synthea csv files
 			if (sel.contains("uploadSyntheaCsv")) {
-				// create the indexes and add constraints
 				log("UPLOADING SYNTHEA CSV");
 				use(conn);
 			}
 			if (sel.contains("runAchilles")) {
-				// create the indexes and add constraints
 				log("RUNNING ACHILLES");
 				use(conn);
 			}
