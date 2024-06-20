@@ -33,28 +33,39 @@ public class PolitesGui extends JFrame {
 	// CREATE CHECK BOXES
 	// ---
 	
+	// select
 	private JCheckBox selectAllCheckbox;
+	// reset
 	private JCheckBox burnEverythingToTheGround = new JCheckBox("Burn Everything to the Ground");
+	// create database objects
 	private JCheckBox createDatabase = new JCheckBox("Create Database");
 	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
-	private JCheckBox loadTerminology = new JCheckBox("Load Terminology");
+	// terminology
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
+	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
+	private JCheckBox importTerminology = new JCheckBox("Import Terminology (From an Export Zip File)");
+	// sequences, indexes, and constraints
 	private JCheckBox createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
 	private JCheckBox createIndexes = new JCheckBox("Create Indexes");
 	private JCheckBox addConstraints = new JCheckBox("Add Constraints");
 	private JCheckBox disableConstraints = new JCheckBox("Disable Constraints");
 	private JCheckBox enableConstraints = new JCheckBox("Enable Constraints");
+	// truncate, import, and export data tables
 	private JCheckBox truncateDataTables = new JCheckBox("Truncate (Data Tables Only)");
 	private JCheckBox importDataTables = new JCheckBox("Import (Data Tables Only)");
 	private JCheckBox exportDataTables = new JCheckBox("Export (Data Tables Only)");
+	// truncate, import, and export data tables
 	private JCheckBox truncateAll = new JCheckBox("Truncate All CDM Tables");
 	private JCheckBox importAll = new JCheckBox("Import All CDM Tables");
 	private JCheckBox exportAll = new JCheckBox("Export All CDM Tables");
+	// load synthea
 	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
 	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
+	// run achilles
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
+	// other controls
 	private JComboBox<String> databaseType, cdmVersion;
 	private JButton goButton;
 
@@ -80,26 +91,35 @@ public class PolitesGui extends JFrame {
 				// ADD TO SELECT ALL
 				// --
 				boolean selected = selectAllCheckbox.isSelected();
+				// reset
 				burnEverythingToTheGround.setSelected(selected);
+				// create database objects
 				createDatabase.setSelected(selected);
 				createDatabaseUsers.setSelected(selected);
 				createTables.setSelected(selected);
 				createCDMSourceRecord.setSelected(selected);
+				// terminology
 				loadTerminology.setSelected(selected);
 				truncateTerminology.setSelected(selected);
+				importTerminology.setSelected(selected);
+				// sequences, indexes, and constraints
 				createSequencesForPrimaryKeys.setSelected(selected);
 				createIndexes.setSelected(selected);
 				addConstraints.setSelected(selected);
 				disableConstraints.setSelected(selected);
 				enableConstraints.setSelected(selected);
+				// truncate, import and export data tables
 				truncateDataTables.setSelected(selected);
 				importDataTables.setSelected(selected);
 				exportDataTables.setSelected(selected);
+				// truncate, import and export all tables
 				truncateAll.setSelected(selected);
 				importAll.setSelected(selected);
 				exportAll.setSelected(selected);
+				// load synthea
 				loadSyntheaCsv.setSelected(selected);
 				addWebApiRecords.setSelected(selected);
+				// run achilles
 				runAchilles.setSelected(selected);
 			}
 		});
@@ -124,6 +144,7 @@ public class PolitesGui extends JFrame {
 		GroupPanel terminology = new GroupPanel(checkboxPanel, "Terminology");
 		terminology.add(truncateTerminology);
 		terminology.add(loadTerminology);
+		terminology.add(importTerminology);
 		// sequences, indexes, and constraints
 		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
 		seqIndCon.add(createSequencesForPrimaryKeys);
@@ -231,6 +252,8 @@ public class PolitesGui extends JFrame {
 		// terminology
 		if (truncateTerminology.isSelected())
 			confirmationMessage.append("- Truncate Terminology\n");
+		if (importTerminology.isSelected())
+			confirmationMessage.append("- Import Terminology\n");
 		if (loadTerminology.isSelected())
 			confirmationMessage.append("- Load Terminology\n");
 		// sequences, indexes, and constraints
@@ -247,11 +270,16 @@ public class PolitesGui extends JFrame {
 		// truncate, import, and export data tables
 		if(truncateDataTables.isSelected())
 			confirmationMessage.append("- Truncate Data Tables\n");
-		if (loadSyntheaCsv.isSelected())
-			confirmationMessage.append("- Load Synthea CSV\n");
+		if(importDataTables.isSelected())
+			confirmationMessage.append("- Import Data Tables\n");
 		// truncate, import, and export all tables
 		if(truncateAll.isSelected())
 			confirmationMessage.append("- Truncate All Tables\n");
+		if(importAll.isSelected())
+			confirmationMessage.append("- Import All Tables\n");
+		// load synthea
+		if (loadSyntheaCsv.isSelected())
+			confirmationMessage.append("- Load Synthea CSV\n");
 		// run achilles
 		if (runAchilles.isSelected())
 			confirmationMessage.append("- Run Achilles\n");
@@ -296,6 +324,10 @@ public class PolitesGui extends JFrame {
 				log.info("- Load Terminology");
 				sel.add("loadTerminology");
 			}
+			if (importTerminology.isSelected()) {
+				log.info("- Import Terminology");
+				sel.add("importTerminology");
+			}
 			// sequences, indexes, and constraints
 			if (createSequencesForPrimaryKeys.isSelected()) {
 				log.info("- Create Sequences for Primary Keys");
@@ -322,10 +354,18 @@ public class PolitesGui extends JFrame {
 				log.info("- Truncate Data Tables");
 				sel.add("truncateDataTables");
 			}		
+			if (importDataTables.isSelected()) {
+				log.info("- Import Data Tables");
+				sel.add("importDataTables");
+			}		
 			// truncate, import, and export all tables
 			if (truncateAll.isSelected()) {
 				log.info("- Truncate all Tables");
 				sel.add("truncateAll");
+			}		
+			if (importAll.isSelected()) {
+				log.info("- Import All Tables");
+				sel.add("importAll");
 			}		
 			// load synthea
 			if (loadSyntheaCsv.isSelected()) {

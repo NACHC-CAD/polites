@@ -19,8 +19,10 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.EnableConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
+import org.nachc.tools.fhirtoomop.tools.build.impl.UploadCsvFilesZip;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
+import org.nachc.tools.fhirtoomop.util.db.uploadcsv.sqlserver.UploadCsvForSqlServer;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
@@ -89,6 +91,11 @@ public class ExecutePolitesGoAction {
 				LoadTerminology.exec(conn);
 				log.info("Done loading terminology.");
 			}
+			if(sel.contains("importTerminology")) {
+				log("IMPORTING TERMINOLOGY");
+				UploadCsvForSqlServer.uploadTerminologyTables();
+				log.info("Done with import terminology.");
+			}
 			// sequences, indexes, and constraints
 			if (sel.contains("createSequencesForPrimaryKeys")) {
 				log("CREATING SEQUENCES");
@@ -121,11 +128,21 @@ public class ExecutePolitesGoAction {
 				TruncateCdmTables.truncateDataTables();
 				log.info("Done truncating.");
 			}
+			if(sel.contains("importDataTables")) {
+				log("IMPORTING DATA TABLES");
+				UploadCsvForSqlServer.uploadDatatables();
+				log.info("Done importing.");
+			}
 			// truncate, import, and export all tables
 			if(sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
 				TruncateCdmTables.truncateAllTables();
 				log.info("Done truncating.");
+			}
+			if(sel.contains("importAll")) {
+				log("IMPORTING ALL TABLES");
+				UploadCsvForSqlServer.uploadAll();
+				log.info("Done importing.");
 			}
 			// load synthea csv files
 			if (sel.contains("uploadSyntheaCsv")) {
@@ -136,8 +153,6 @@ public class ExecutePolitesGoAction {
 				log("RUNNING ACHILLES");
 				use(conn);
 			}
-		
-		
 		} finally {
 			Database.close(conn);
 		}
