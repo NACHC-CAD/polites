@@ -19,11 +19,10 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.EnableConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
-import org.nachc.tools.fhirtoomop.tools.build.impl.UploadCsvFilesZip;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
-import org.nachc.tools.fhirtoomop.util.db.uploadcsv.sqlserver.UploadCsvForSqlServer;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
+import org.nachc.tools.fhirtoomop.util.uploadcsv.sqlserver.UploadCsvForSqlServer;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
 
@@ -66,7 +65,7 @@ public class ExecutePolitesGoAction {
 				Database.commit(conn);
 			}
 			// terminology
-			if(sel.contains("truncateTerminology")) {
+			if (sel.contains("truncateTerminology")) {
 				log("TRUNCATING TERMINOLOGY");
 				TruncateCdmTables.truncateVocabularyTables();
 				log.info("Done truncating.");
@@ -91,7 +90,7 @@ public class ExecutePolitesGoAction {
 				LoadTerminology.exec(conn);
 				log.info("Done loading terminology.");
 			}
-			if(sel.contains("importTerminology")) {
+			if (sel.contains("importTerminology")) {
 				log("IMPORTING TERMINOLOGY");
 				UploadCsvForSqlServer.uploadTerminologyTables();
 				log.info("Done with import terminology.");
@@ -123,23 +122,23 @@ public class ExecutePolitesGoAction {
 				EnableConstraints.exec(conn);
 			}
 			// truncate, import, and export data tables
-			if(sel.contains("truncateDataTables")) {
+			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
 				TruncateCdmTables.truncateDataTables();
 				log.info("Done truncating.");
 			}
-			if(sel.contains("importDataTables")) {
+			if (sel.contains("importDataTables")) {
 				log("IMPORTING DATA TABLES");
 				UploadCsvForSqlServer.uploadDatatables();
 				log.info("Done importing.");
 			}
 			// truncate, import, and export all tables
-			if(sel.contains("truncateAll")) {
+			if (sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
 				TruncateCdmTables.truncateAllTables();
 				log.info("Done truncating.");
 			}
-			if(sel.contains("importAll")) {
+			if (sel.contains("importAll")) {
 				log("IMPORTING ALL TABLES");
 				UploadCsvForSqlServer.uploadAll();
 				log.info("Done importing.");
@@ -167,12 +166,12 @@ public class ExecutePolitesGoAction {
 		str += "* * * \n\n";
 		log.info(str);
 	}
-	
+
 	private static void use(Connection conn) {
 		log.info("Setting default schema...");
 		String schemaName = AppParams.getDatabaseName();
-		Database.update("use " + schemaName, conn);		
+		Database.update("use " + schemaName, conn);
 		log.info("Using: " + schemaName);
 	}
-	
+
 }
