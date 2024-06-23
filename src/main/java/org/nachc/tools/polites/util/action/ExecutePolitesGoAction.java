@@ -23,6 +23,8 @@ import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerm
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.fhirtoomop.util.uploadcsv.sqlserver.UploadCsvForSqlServer;
+import org.nachc.tools.fhirtoomop.util.webapi.CreateWebApiRecords;
+import org.nachc.tools.fhirtoomop.util.webapi.DeleteWebApiRecords;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
 import org.yaorma.database.Database;
 
@@ -145,12 +147,20 @@ public class ExecutePolitesGoAction {
 			}
 			// load synthea csv files
 			if (sel.contains("uploadSyntheaCsv")) {
-				log("UPLOADING SYNTHEA CSV");
+				log("UPLOAD SYNTHEA CSV: NOT IMPLEMENTED YET ");
 				use(conn);
 			}
-			if (sel.contains("runAchilles")) {
-				log("RUNNING ACHILLES");
+			if (sel.contains("addWebApiRecords")) {
 				use(conn);
+				CreateWebApiRecords.exec();
+			}
+			if (sel.contains("deleteWebApiRecords")) {
+				use(conn);
+				DeleteWebApiRecords.exec();
+			}
+			if (sel.contains("runAchilles")) {
+				use(conn);
+				log("RUN ACHILLES: NOT IMPLEMENTED YET ");
 			}
 		} finally {
 			Database.close(conn);

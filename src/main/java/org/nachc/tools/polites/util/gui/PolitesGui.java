@@ -63,6 +63,7 @@ public class PolitesGui extends JFrame {
 	// load synthea
 	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
 	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
+	private JCheckBox deleteWebApiRecords = new JCheckBox("Delete WebAPI Records");
 	// run achilles
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	// other controls
@@ -118,8 +119,9 @@ public class PolitesGui extends JFrame {
 				exportAll.setSelected(selected);
 				// load synthea
 				loadSyntheaCsv.setSelected(selected);
-				addWebApiRecords.setSelected(selected);
 				// run achilles
+				addWebApiRecords.setSelected(selected);
+				deleteWebApiRecords.setSelected(selected);
 				runAchilles.setSelected(selected);
 			}
 		});
@@ -168,6 +170,7 @@ public class PolitesGui extends JFrame {
 		// run achilles
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
 		runAchillesGroup.add(addWebApiRecords);
+		runAchillesGroup.add(deleteWebApiRecords);
 		runAchillesGroup.add(runAchilles);
 
 		JScrollPane scrollPane = new JScrollPane(checkboxPanel);
@@ -281,6 +284,10 @@ public class PolitesGui extends JFrame {
 		if (loadSyntheaCsv.isSelected())
 			confirmationMessage.append("- Load Synthea CSV\n");
 		// run achilles
+		if (addWebApiRecords.isSelected())
+			confirmationMessage.append("- Add WebAPI Records\n");
+		if (deleteWebApiRecords.isSelected())
+			confirmationMessage.append("- Delete WebAPI Records\n");
 		if (runAchilles.isSelected())
 			confirmationMessage.append("- Run Achilles\n");
 
@@ -371,6 +378,16 @@ public class PolitesGui extends JFrame {
 			if (loadSyntheaCsv.isSelected()) {
 				log.info("- Load Synthea CSV");
 				sel.add("loadSyntheaCsv");
+			}
+			// add webapi records
+			if (addWebApiRecords.isSelected()) {
+				log.info("- Add WebAPI Records");
+				sel.add("addWebApiRecords");
+			}
+			// del webapi records
+			if (deleteWebApiRecords.isSelected()) {
+				log.info("- Delete WebAPI Records");
+				sel.add("deleteWebApiRecords");
 			}
 			// run achilles
 			if (runAchilles.isSelected()) {
