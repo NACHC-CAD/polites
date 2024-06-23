@@ -4,8 +4,10 @@ import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import org.nachc.tools.fhirtoomop.tools.build.atlas.impl.CreateAchillesDatabases;
 import org.nachc.tools.fhirtoomop.tools.build.impl.AddConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.BurnEverythingToTheGround;
+import org.nachc.tools.fhirtoomop.tools.build.impl.CreateAchillesAnalysisTable;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateCdmSourceRecord;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabase;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabaseIndexes;
@@ -150,6 +152,7 @@ public class ExecutePolitesGoAction {
 				log("UPLOAD SYNTHEA CSV: NOT IMPLEMENTED YET ");
 				use(conn);
 			}
+			// run achilles
 			if (sel.contains("addWebApiRecords")) {
 				use(conn);
 				CreateWebApiRecords.exec();
@@ -157,6 +160,11 @@ public class ExecutePolitesGoAction {
 			if (sel.contains("deleteWebApiRecords")) {
 				use(conn);
 				DeleteWebApiRecords.exec();
+			}
+			if (sel.contains("createAchillesDatabase")) {
+				use(conn);
+				CreateAchillesDatabases.exec();
+				CreateAchillesAnalysisTable.exec();
 			}
 			if (sel.contains("runAchilles")) {
 				use(conn);

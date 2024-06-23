@@ -65,6 +65,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
 	private JCheckBox deleteWebApiRecords = new JCheckBox("Delete WebAPI Records");
 	// run achilles
+	private JCheckBox createAchillesDatabase = new JCheckBox("Create Achilles Database");
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	// other controls
 	private JComboBox<String> databaseType, cdmVersion;
@@ -122,6 +123,7 @@ public class PolitesGui extends JFrame {
 				// run achilles
 				addWebApiRecords.setSelected(selected);
 				deleteWebApiRecords.setSelected(selected);
+				createAchillesDatabase.setSelected(selected);
 				runAchilles.setSelected(selected);
 			}
 		});
@@ -171,6 +173,7 @@ public class PolitesGui extends JFrame {
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
 		runAchillesGroup.add(addWebApiRecords);
 		runAchillesGroup.add(deleteWebApiRecords);
+		runAchillesGroup.add(createAchillesDatabase);
 		runAchillesGroup.add(runAchilles);
 
 		JScrollPane scrollPane = new JScrollPane(checkboxPanel);
@@ -288,6 +291,8 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Add WebAPI Records\n");
 		if (deleteWebApiRecords.isSelected())
 			confirmationMessage.append("- Delete WebAPI Records\n");
+		if (createAchillesDatabase.isSelected())
+			confirmationMessage.append("- Create Achilles Database\n");
 		if (runAchilles.isSelected())
 			confirmationMessage.append("- Run Achilles\n");
 
@@ -388,6 +393,11 @@ public class PolitesGui extends JFrame {
 			if (deleteWebApiRecords.isSelected()) {
 				log.info("- Delete WebAPI Records");
 				sel.add("deleteWebApiRecords");
+			}
+			// run achilles
+			if (createAchillesDatabase.isSelected()) {
+				log.info("- Create Achilles Database");
+				sel.add("createAchillesDatabase");
 			}
 			// run achilles
 			if (runAchilles.isSelected()) {
