@@ -1501,3 +1501,546 @@
 2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1802 (0.132449 secs)
 2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1803 (Number of distinct mesurement occurrence concepts per person) -- START
 2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.053 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1803 (0.108895 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1804 (Number of persons with at least one mesurement  occurrence, by measurement_concept_id by calendar year by gender by age decile) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0792 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1804 (0.130657 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1805 (Number of measurement occurrence records, by measurement_concept_id by measurement_type_concept_id) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0222 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1805 (0.072304 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1806 (Distribution of age by measurement_concept_id) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0475 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1806 (0.095511 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1807 (Number of measurement occurrence records, by measurement_concept_id and unit_concept_id) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0177 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1807 (0.069162 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1811 (Number of measurement records with a valid value (with a mapped, non-null value_as_number)) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0155 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1811 (0.060404 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1814 (Number of measurement records with no value (numeric, string, or concept)) -- START
+2024-06-24 13:54:18	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0112 secs
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1814 (0.061942 secs)
+2024-06-24 13:54:18	[Main thread]	INFO	Achilles	achilles	Analysis 1815 (Distribution of numeric values, by measurement_concept_id and unit_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.259 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1815 (0.316599 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1816 (Distribution of low range, by measurement_concept_id and unit_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.042 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1816 (0.092023 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1817 (Distribution of high range, by measurement_concept_id and unit_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0423 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1817 (0.095097 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1818 (Number of measurement records below/within/above normal range, by measurement_concept_id and unit_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0196 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1818 (0.069738 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1819 (Number of measurement records, by measurement_concept_id, with a valid value (with a mapped, non-null value_as_number)) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0137 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1819 (0.063951 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1820 (Number of measurement records  by measurement start month) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0152 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1820 (0.062592 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1821 (Number of measurement records with no numeric value) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00727 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1821 (0.080355 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1822 (Number of measurement records, by measurement_concept_id and value_as_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0145 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1822 (0.066432 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1823 (Number of measurement records, by measurement_concept_id and operator_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0183 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1823 (0.065342 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1825 (Number of measurement records by measurement_source_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0143 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1825 (0.066275 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1826 (Number of measurement records by value_as_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.02 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1826 (0.072112 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1827 (Number of measurement records by unit_concept_id) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.016 secs
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1827 (0.065764 secs)
+2024-06-24 13:54:19	[Main thread]	INFO	Achilles	achilles	Analysis 1891 (Percentage of total persons that have at least x measurements) -- START
+2024-06-24 13:54:19	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0258 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1891 (0.085367 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 1900 (Source values mapped to concept_id 0 by table, by column, by source_value) -- START
+2024-06-24 13:54:20	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0762 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 1900 (0.126098 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 2000 (Number of patients with at least 1 Dx and 1 Rx) -- START
+2024-06-24 13:54:20	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0135 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2000 (0.068841 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 2001 (Number of patients with at least 1 Dx and 1 Proc) -- START
+2024-06-24 13:54:20	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0227 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2001 (0.077706 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 2002 (Number of patients with at least 1 Meas, 1 Dx and 1 Rx) -- START
+2024-06-24 13:54:20	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0243 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2002 (0.072768 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 2003 (Number of patients with at least 1 Visit) -- START
+2024-06-24 13:54:20	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0142 secs
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2003 (0.067293 secs)
+2024-06-24 13:54:20	[Main thread]	INFO	Achilles	achilles	Analysis 2004 (Number of distinct patients that overlap between specific domains) -- START
+2024-06-24 13:54:21	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 1.52 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2004 (1.605456 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2100 (Number of persons with at least one device exposure, by device_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0114 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2100 (0.084193 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2101 (Number of device exposure records, by device_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0145 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2101 (0.080293 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2102 (Number of persons by device records  start month, by device_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0123 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2102 (0.086348 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2104 (Number of persons with at least one device exposure, by device_concept_id by calendar year by gender by age decile) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0133 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2104 (0.078651 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2105 (Number of device exposure records, by device_concept_id by device_type_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0144 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2105 (0.071636 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2106 (Distribution of age by device_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0321 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2106 (0.094765 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2120 (Number of device_exposure records by device_exposure start month) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0108 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2120 (0.074506 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2125 (Number of device_exposure records by device_source_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0101 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2125 (0.068091 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2191 (Percentage of total persons that have at least x device exposures) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.014 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2191 (0.077634 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2200 (Number of persons with at least one note by  note_type_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00949 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2200 (0.066291 secs)
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	Analysis 2201 (Number of note records, by note_type_concept_id) -- START
+2024-06-24 13:54:22	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0082 secs
+2024-06-24 13:54:22	[Main thread]	INFO	Achilles	achilles	[Main Analysis] [COMPLETE] 2201 (0.074467 secs)
+2024-06-24 13:54:25	[Main thread]	INFO	Achilles	achilles	Merging scratch Achilles tables
+2024-06-24 13:54:26	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.312 secs
+2024-06-24 13:54:26	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0948 secs
+2024-06-24 13:54:26	[Main thread]	INFO	Achilles	achilles	Done. Achilles results can now be found in schema synthea_omop_ach_res.dbo
+2024-06-24 13:54:26	[Main thread]	INFO	Achilles	achilles	Dropping scratch Achilles tables from schema #
+2024-06-24 13:54:29	[Main thread]	TRACE	Achilles	dropAllScratchTables	Initiating cluster consisting only of main thread
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00538 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00435 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00371 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00454 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00474 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00385 secs
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:29	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00451 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00511 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00898 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00444 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0045 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00381 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00432 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00355 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00413 secs
+2024-06-24 13:54:30	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00483 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00461 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0046 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00416 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00352 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00338 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0041 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00403 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.01 secs
+2024-06-24 13:54:31	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00481 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00495 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00447 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00374 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00431 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00422 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00385 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00443 secs
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:32	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00483 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00431 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00512 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00439 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00371 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00365 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00379 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00472 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0043 secs
+2024-06-24 13:54:33	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00513 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00439 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00478 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00415 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00419 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.005 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0044 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00514 secs
+2024-06-24 13:54:34	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00461 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00544 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00507 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00536 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00409 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00425 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00471 secs
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:35	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0044 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00445 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00532 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00393 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00383 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00404 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00356 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.004 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00814 secs
+2024-06-24 13:54:36	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00487 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00486 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00454 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0043 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00385 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00375 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00385 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00345 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00384 secs
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:37	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00442 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00441 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00448 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00407 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00552 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0037 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00387 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00386 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00435 secs
+2024-06-24 13:54:38	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00472 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00488 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00473 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00395 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00468 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00377 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00372 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00333 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00577 secs
+2024-06-24 13:54:39	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00442 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00438 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00444 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00374 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00382 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0041 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00367 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00452 secs
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00437 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00486 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00465 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0037 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00609 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00852 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00588 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00471 secs
+2024-06-24 13:54:41	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00434 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00431 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0046 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00363 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00393 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00375 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00365 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00399 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00427 secs
+2024-06-24 13:54:42	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00436 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00475 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00481 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00348 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00382 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00364 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00377 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00403 secs
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:43	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00467 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00465 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00469 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0047 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00341 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00358 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00407 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00398 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00404 secs
+2024-06-24 13:54:44	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00442 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00497 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00435 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00431 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00373 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00394 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00393 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00448 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00469 secs
+2024-06-24 13:54:45	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00491 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00497 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0051 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0091 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00465 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0047 secs
+2024-06-24 13:54:46	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0049 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00454 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00551 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00425 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00405 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00443 secs
+2024-06-24 13:54:47	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00461 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00438 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00479 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00375 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00352 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00367 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00359 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0034 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00474 secs
+2024-06-24 13:54:48	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00461 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0045 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00487 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00373 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00369 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00339 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0039 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00433 secs
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:49	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00455 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00469 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00478 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00474 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00361 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00346 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00333 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00402 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00419 secs
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:50	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00444 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00437 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00485 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00385 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00374 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00394 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00425 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00381 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00477 secs
+2024-06-24 13:54:51	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00593 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00466 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00433 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00377 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00341 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00363 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00333 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00401 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00449 secs
+2024-06-24 13:54:52	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00451 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0046 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00464 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0114 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00362 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00368 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00392 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00797 secs
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:53	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00979 secs
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00455 secs
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00432 secs
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00438 secs
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.00376 secs
+2024-06-24 13:54:54	[Main thread]	INFO	Achilles	achilles	Temporary Achilles tables removed from schema #
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	connectSqlServer	Connecting using SQL Server driver
+2024-06-24 13:54:54	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 0.0382 secs
+2024-06-24 13:54:54	[Main thread]	INFO	Achilles	achilles	[Total Runtime] 51.828152 secs
