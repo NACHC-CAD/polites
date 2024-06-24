@@ -4,6 +4,7 @@ import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import org.nachc.tools.fhirtoomop.tools.build.achilles.RunAchilles;
 import org.nachc.tools.fhirtoomop.tools.build.atlas.impl.CreateAchillesDatabases;
 import org.nachc.tools.fhirtoomop.tools.build.impl.AddConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.BurnEverythingToTheGround;
@@ -44,16 +45,19 @@ public class ExecutePolitesGoAction {
 			if (sel.contains("burnEverythingToTheGround")) {
 				log("BURNING EVERYTHING TO THE GROUND");
 				BurnEverythingToTheGround.exec(conn);
+				log.info("Done with Burn Everything to the Ground.");
 			}
 			// create database objects
 			if (sel.contains("createDatabase")) {
 				log("CREATING DATABASE");
 				log("Creating OMOP instance...");
 				CreateDatabase.exec(conn);
+				log.info("Done with Create Database.");
 			}
 			if (sel.contains("createDatabaseUsers")) {
 				log("CREATING USER");
 				CreateDatabaseUser.exec(conn);
+				log.info("Done with Create Database Users.");
 			}
 			if (sel.contains("createTables")) {
 				log("CREATING TABLES");
@@ -61,12 +65,14 @@ public class ExecutePolitesGoAction {
 				CreateDatabaseTables.exec(conn);
 				CreateFhirResoureTables.exec(conn);
 				CreateMappingTables.exec(conn);
+				log.info("Done with Create Tables.");
 			}
 			if (sel.contains("createCDMSourceRecord")) {
 				log("CREATING CDM RECORD");
 				use(conn);
 				CreateCdmSourceRecord.exec(conn);
 				Database.commit(conn);
+				log.info("Done with Create CDM Record.");
 			}
 			// terminology
 			if (sel.contains("truncateTerminology")) {
@@ -104,46 +110,55 @@ public class ExecutePolitesGoAction {
 				log("CREATING SEQUENCES");
 				use(conn);
 				CreateSequencesForPrimaryKeys.exec(conn);
+				log.info("Done with Create Sequences.");
 			}
 			if (sel.contains("createIndexes")) {
 				log("CREATING CONSTRAINTS");
 				use(conn);
 				CreateDatabaseIndexes.exec(conn);
+				log.info("Done with Create Indexes.");
 			}
 			if (sel.contains("addConstraints")) {
 				log("ADDING CONSTRAINTS");
 				use(conn);
 				AddConstraints.exec();
+				log.info("Done Adding Constraints.");
 			}
 			if (sel.contains("disableConstraints")) {
 				log("DISABLING CONSTRAINTS");
 				use(conn);
 				DisableConstraints.exec(conn);
+				log.info("Done with Disable Constraints.");
 			}
 			if (sel.contains("enableConstraints")) {
 				log("ENABLING CONSTRAINTS");
 				use(conn);
 				EnableConstraints.exec(conn);
+				log.info("Done with Enable Constraints.");
 			}
 			// truncate, import, and export data tables
 			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
+				use(conn);
 				TruncateCdmTables.truncateDataTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importDataTables")) {
 				log("IMPORTING DATA TABLES");
+				use(conn);
 				UploadCsvForSqlServer.uploadDatatables();
 				log.info("Done importing.");
 			}
 			// truncate, import, and export all tables
 			if (sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
+				use(conn);
 				TruncateCdmTables.truncateAllTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importAll")) {
 				log("IMPORTING ALL TABLES");
+				use(conn);
 				UploadCsvForSqlServer.uploadAll();
 				log.info("Done importing.");
 			}
@@ -151,24 +166,33 @@ public class ExecutePolitesGoAction {
 			if (sel.contains("uploadSyntheaCsv")) {
 				log("UPLOAD SYNTHEA CSV: NOT IMPLEMENTED YET ");
 				use(conn);
+				log.info("Done with Synthea Upload.");
 			}
 			// run achilles
-			if (sel.contains("addWebApiRecords")) {
-				use(conn);
-				CreateWebApiRecords.exec();
-			}
 			if (sel.contains("deleteWebApiRecords")) {
+				log("DELETING WEBAPI RECORDS");
 				use(conn);
 				DeleteWebApiRecords.exec();
+				log.info("Done deleting webapi records.");
+			}
+			if (sel.contains("addWebApiRecords")) {
+				log("ADDING WEBAPI RECORDS");
+				use(conn);
+				CreateWebApiRecords.exec();
+				log.info("Done adding webapi records.");
 			}
 			if (sel.contains("createAchillesDatabase")) {
+				log("CREATING ACHILLES DATABASE");
 				use(conn);
 				CreateAchillesDatabases.exec();
 				CreateAchillesAnalysisTable.exec();
+				log.info("Done creating Achilles database.");
 			}
 			if (sel.contains("runAchilles")) {
+				log("RUNNING ACHILLES");
 				use(conn);
-				log("RUN ACHILLES: NOT IMPLEMENTED YET ");
+				RunAchilles.exec();
+				log.info("Done running Achilles.");
 			}
 		} finally {
 			Database.close(conn);

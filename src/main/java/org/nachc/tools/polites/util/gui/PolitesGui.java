@@ -171,8 +171,8 @@ public class PolitesGui extends JFrame {
 		loadSynthea.add(loadSyntheaCsv);
 		// run achilles
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
-		runAchillesGroup.add(addWebApiRecords);
 		runAchillesGroup.add(deleteWebApiRecords);
+		runAchillesGroup.add(addWebApiRecords);
 		runAchillesGroup.add(createAchillesDatabase);
 		runAchillesGroup.add(runAchilles);
 
