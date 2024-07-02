@@ -25,6 +25,7 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
+import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
 import org.nachc.tools.fhirtoomop.util.uploadcsv.sqlserver.UploadCsvForSqlServer;
 import org.nachc.tools.fhirtoomop.util.webapi.CreateWebApiRecords;
 import org.nachc.tools.fhirtoomop.util.webapi.DeleteWebApiRecords;
@@ -105,6 +106,11 @@ public class ExecutePolitesGoAction {
 				UploadCsvForSqlServer.uploadTerminologyTables();
 				log.info("Done with import terminology.");
 			}
+			if (sel.contains("exportTerminology")) {
+				log("EXPORTING TERMINOLOGY");
+				ExportTables.exportVocabTables();
+				log.info("Done with export terminology.");
+			}
 			// sequences, indexes, and constraints
 			if (sel.contains("createSequencesForPrimaryKeys")) {
 				log("CREATING SEQUENCES");
@@ -149,6 +155,12 @@ public class ExecutePolitesGoAction {
 				UploadCsvForSqlServer.uploadDatatables();
 				log.info("Done importing.");
 			}
+			if (sel.contains("exportDataTables")) {
+				log("EXPORTING DATA TABLES");
+				use(conn);
+				ExportTables.exportDataTables();
+				log.info("Done exporting.");
+			}
 			// truncate, import, and export all tables
 			if (sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
@@ -161,6 +173,12 @@ public class ExecutePolitesGoAction {
 				use(conn);
 				UploadCsvForSqlServer.uploadAll();
 				log.info("Done importing.");
+			}
+			if (sel.contains("exportAll")) {
+				log("EXPORTING ALL TABLES");
+				use(conn);
+				ExportTables.exportAllCdmTables();
+				log.info("Done exporting.");
 			}
 			// load synthea csv files
 			if (sel.contains("uploadSyntheaCsv")) {

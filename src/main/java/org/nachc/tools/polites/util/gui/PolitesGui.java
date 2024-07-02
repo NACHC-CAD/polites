@@ -46,6 +46,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
 	private JCheckBox importTerminology = new JCheckBox("Import Terminology (From an Export Zip File)");
+	private JCheckBox exportTerminology = new JCheckBox("Export Terminology");
 	// sequences, indexes, and constraints
 	private JCheckBox createSequencesForPrimaryKeys = new JCheckBox("Create Sequences for Primary Keys");
 	private JCheckBox createIndexes = new JCheckBox("Create Indexes");
@@ -104,6 +105,7 @@ public class PolitesGui extends JFrame {
 				loadTerminology.setSelected(selected);
 				truncateTerminology.setSelected(selected);
 				importTerminology.setSelected(selected);
+				exportTerminology.setSelected(selected);
 				// sequences, indexes, and constraints
 				createSequencesForPrimaryKeys.setSelected(selected);
 				createIndexes.setSelected(selected);
@@ -149,6 +151,7 @@ public class PolitesGui extends JFrame {
 		terminology.add(truncateTerminology);
 		terminology.add(loadTerminology);
 		terminology.add(importTerminology);
+		terminology.add(exportTerminology);
 		// sequences, indexes, and constraints
 		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
 		seqIndCon.add(createSequencesForPrimaryKeys);
@@ -263,6 +266,8 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Import Terminology\n");
 		if (loadTerminology.isSelected())
 			confirmationMessage.append("- Load Terminology\n");
+		if (exportTerminology.isSelected())
+			confirmationMessage.append("- ExportTerminology\n");
 		// sequences, indexes, and constraints
 		if (createSequencesForPrimaryKeys.isSelected())
 			confirmationMessage.append("- Create Sequences for Primary Keys\n");
@@ -279,11 +284,15 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Truncate Data Tables\n");
 		if(importDataTables.isSelected())
 			confirmationMessage.append("- Import Data Tables\n");
+		if(exportDataTables.isSelected())
+			confirmationMessage.append("- Export Data Tables\n");
 		// truncate, import, and export all tables
 		if(truncateAll.isSelected())
 			confirmationMessage.append("- Truncate All Tables\n");
 		if(importAll.isSelected())
 			confirmationMessage.append("- Import All Tables\n");
+		if(exportAll.isSelected())
+			confirmationMessage.append("- Export All Tables\n");
 		// load synthea
 		if (loadSyntheaCsv.isSelected())
 			confirmationMessage.append("- Load Synthea CSV\n");
@@ -341,6 +350,10 @@ public class PolitesGui extends JFrame {
 				log.info("- Import Terminology");
 				sel.add("importTerminology");
 			}
+			if (exportTerminology.isSelected()) {
+				log.info("- Export Terminology");
+				sel.add("exportTerminology");
+			}
 			// sequences, indexes, and constraints
 			if (createSequencesForPrimaryKeys.isSelected()) {
 				log.info("- Create Sequences for Primary Keys");
@@ -371,6 +384,10 @@ public class PolitesGui extends JFrame {
 				log.info("- Import Data Tables");
 				sel.add("importDataTables");
 			}		
+			if (exportDataTables.isSelected()) {
+				log.info("- Export Data Tables");
+				sel.add("exportDataTables");
+			}		
 			// truncate, import, and export all tables
 			if (truncateAll.isSelected()) {
 				log.info("- Truncate all Tables");
@@ -379,6 +396,10 @@ public class PolitesGui extends JFrame {
 			if (importAll.isSelected()) {
 				log.info("- Import All Tables");
 				sel.add("importAll");
+			}		
+			if (exportAll.isSelected()) {
+				log.info("- Export All Tables");
+				sel.add("exportAll");
 			}		
 			// load synthea
 			if (loadSyntheaCsv.isSelected()) {
