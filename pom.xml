@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<version>1.0.002</version>
+		<version>1.0.007</version>
 	</properties>
 
 	<groupId>org.nachc.cad.tools</groupId>
@@ -12,9 +12,9 @@
 
 	<packaging>jar</packaging>
 
-	<name>Polites for Sql Server</name>
-	<description>Utilities to setup CDM in Sql Server</description>
-	<url>https://github.com/greshje/polites-for-sqlserver</url>
+	<name>Polites</name>
+	<description>Utilities to setup CDM</description>
+	<url>https://github.com/greshje/polites</url>
 
 	<licenses>
 		<license>
@@ -58,13 +58,13 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.6.007</version>
+		    <version>1.7.051</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.nachc.cad.tools</groupId>
 			<artifactId>core</artifactId>
-			<version>1.1.031</version>
+			<version>1.1.050</version>
 		</dependency>
 
 		<!-- 
@@ -135,17 +135,29 @@
 
 	<build>
 
+		<!-- 
+		* 
+		* EXCLUDE AUTHENTICATION INFO FROM DEPLOYMENT BUILD (include in local build)
+		*
+		-->
+
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*.*</include>
 				</includes>
+				<!--
+	            <excludes>
+	                <exclude>auth/**/*.properties</exclude>
+	            </excludes>
+	            -->
 			</resource>
 		</resources>
-
+		
 		<pluginManagement>
 			<plugins>
+
 				<!-- compiler -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -155,10 +167,35 @@
 						<release>11</release>
 					</configuration>
 				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
+
+			<!-- copy resources from the resources dir -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/polites</outputDirectory>
+							<resources>
+								<resource>
+									<directory>resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!-- include dependencies in the jar files -->
 			<plugin>
@@ -172,7 +209,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/vsac-to-ohdsi/lib</outputDirectory>
+							<outputDirectory>${project.build.directory}/polites/lib</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>false</overWriteSnapshots>
 							<overWriteIfNewer>true</overWriteIfNewer>
@@ -181,36 +218,6 @@
 				</executions>
 			</plugin>
 
-			<!-- copy the auth directory -->
-			<!--
-			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			    <version>3.2.0</version>
-			    <executions>
-			        <execution>
-			            <id>copy-auth-folder</id>
-			            <phase>process-resources</phase>
-			            <goals>
-			                <goal>copy-resources</goal>
-			            </goals>
-			            <configuration>
-			                <outputDirectory>${basedir}/target/vsac-to-ohdsi/auth</outputDirectory>
-			                <resources>
-			                    <resource>
-			                        <directory>${basedir}/_ETC/auth</directory>
-			                        <filtering>true</filtering>
-			                        <includes>
-			                            <include>**/*</include>
-			                        </includes>
-			                    </resource>
-			                </resources>
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
-			-->
-			
 			<!-- create the jar file -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -220,14 +227,37 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>org.nachc.tools.politesforsqlserver.util.gui.PolitesGui</mainClass>
+							<mainClass>org.nachc.tools.polites.util.PolitesMain</mainClass>
 						</manifest>
 						<manifestEntries>
-							<Class-Path>. ./lib/SparkJDBC42.jar ./lib/SqlRender-1.9.2-SNAPSHOT.jar</Class-Path>
+							<Class-Path>.</Class-Path>
 						</manifestEntries>
 					</archive>
-					<finalName>vsac-to-ohdsi/vsac-to-ohdsi</finalName>
+					<finalName>polites/polites</finalName>
 				</configuration>
+			</plugin>
+
+			<!-- copy the bat file and the app.properties and other files -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Copying files</echo>
+								<copy file="${basedir}/src/main/resources/auth/app.properties" tofile="${basedir}/target/polites/auth/app.properties" />
+								<copy file="${basedir}/src/main/resources/auth/sqlserver-demo-app.properties" tofile="${basedir}/target/polites/auth/sqlserver-demo-app.properties" />
+								<copy file="${basedir}/src/main/resources/bat/polites.bat" tofile="${basedir}/target/polites/polites.bat" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- don't run the integration tests -->
