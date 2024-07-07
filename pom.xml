@@ -58,7 +58,7 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.7.050</version>
+		    <version>1.7.051</version>
 		</dependency>
 
 		<dependency>
@@ -135,17 +135,29 @@
 
 	<build>
 
+		<!-- 
+		* 
+		* EXCLUDE AUTHENTICATION INFO FROM DEPLOYMENT BUILD (include in local build)
+		*
+		-->
+
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*.*</include>
 				</includes>
+				<!--
+	            <excludes>
+	                <exclude>auth/**/*.properties</exclude>
+	            </excludes>
+	            -->
 			</resource>
 		</resources>
-
+		
 		<pluginManagement>
 			<plugins>
+
 				<!-- compiler -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -155,79 +167,102 @@
 						<release>11</release>
 					</configuration>
 				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
 
-			<!-- include dependencies in the jar files -->
+			<!-- copy resources from the resources dir -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
 				<executions>
 					<execution>
-						<id>copy-dependencies</id>
-						<phase>prepare-package</phase>
+						<id>copy-resources</id>
+						<phase>validate</phase>
 						<goals>
-							<goal>copy-dependencies</goal>
+							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/vsac-to-ohdsi/lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
+							<outputDirectory>${basedir}/target/polites</outputDirectory>
+							<resources>
+								<resource>
+									<directory>resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 
-			<!-- copy the auth directory -->
-			<!--
-			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			    <version>3.2.0</version>
-			    <executions>
-			        <execution>
-			            <id>copy-auth-folder</id>
-			            <phase>process-resources</phase>
-			            <goals>
-			                <goal>copy-resources</goal>
-			            </goals>
-			            <configuration>
-			                <outputDirectory>${basedir}/target/vsac-to-ohdsi/auth</outputDirectory>
-			                <resources>
-			                    <resource>
-			                        <directory>${basedir}/_ETC/auth</directory>
-			                        <filtering>true</filtering>
-			                        <includes>
-			                            <include>**/*</include>
-			                        </includes>
-			                    </resource>
-			                </resources>
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
-			-->
-			
-			<!-- create the jar file -->
+	        <!-- create the uber-jar with all dependencies included -->
+	        <plugin>
+	            <artifactId>maven-assembly-plugin</artifactId>
+	            <configuration>
+	                <archive>
+	                    <manifest>
+	                        <mainClass>org.nachc.tools.polites.util.PolitesMain</mainClass>
+	                    </manifest>
+	                </archive>
+	                <descriptorRefs>
+	                    <descriptorRef>jar-with-dependencies</descriptorRef>
+	                </descriptorRefs>
+	                <finalName>polites/polites</finalName>
+	                <outputDirectory>${project.build.directory}</outputDirectory>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <id>make-assembly</id>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>single</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+	
+	        <!-- create the standard jar without dependencies -->
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <configuration>
+	                <archive>
+	                    <manifest>
+	                        <addClasspath>false</addClasspath>
+	                        <mainClass>org.nachc.tools.polites.util.PolitesMain</mainClass>
+	                    </manifest>
+	                </archive>
+	                <finalName>polites/polites-only</finalName>
+	                <outputDirectory>${project.build.directory}</outputDirectory>
+	            </configuration>
+	        </plugin>
+
+			<!-- copy the bat file and the app.properties and other file -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>org.nachc.tools.politesforsqlserver.util.PolitesMain</mainClass>
-						</manifest>
-						<manifestEntries>
-							<Class-Path>. ./lib/SparkJDBC42.jar ./lib/SqlRender-1.9.2-SNAPSHOT.jar</Class-Path>
-						</manifestEntries>
-					</archive>
-					<finalName>vsac-to-ohdsi/vsac-to-ohdsi</finalName>
-				</configuration>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Copying files</echo>
+								<!--
+								<copy file="${basedir}/src/main/resources/main/bat/fhir-to-omop.bat" tofile="${basedir}/target/fhir-to-omop/fhir-to-omop.bat" />
+								<copy file="${basedir}/src/main/resources/main/auth/app.properties" tofile="${basedir}/target/fhir-to-omop/auth/app.properties" />
+								<copy file="${basedir}/src/main/resources/fhir-context.txt" tofile="${basedir}/target/fhir-to-omop/fhir-context.txt" />
+								<copy file="${basedir}/app.properties" tofile="${basedir}/target/fhir-to-omop/auth/default.properties" />
+								-->
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- don't run the integration tests -->
