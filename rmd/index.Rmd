@@ -1,0 +1,34 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>Polites</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 3
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Introduction</h2>
+<p style="text-align: justify;">
+  Polites<sup>1</sup> is a Java based tool that enables the automation of complete OHDSI implementations for either standalone (non-Docker) or Broadsea<sup>2</sup> based OHDSI deployments.  Broadsea provides a turn-key solution with unparalleled ease of use and a standardized stable production deployment that includes an instance of a Common Data Model replete with test data in PostgreSql.  “Broadsea 3.0 provides a flexible approach to deploying OHDSI tools that are typically challenging to set up, and establishes a framework for supporting new OHDSI tools to come.  Any site, regardless of size, can deploy a wide range of OHDSI tools on a laptop or a production server”<sup>3</sup> using Broadsea.  However, after initial deployment there are customizations that most implementations will want to make to create a production, test, or development instance of an OHDSI implementation.  This includes the creation of an independent instance of the CDM that could be in the existing Broadsea instance of PostgreSql or in any of the other data management systems supported by OHDSI (including Oracle, Microsoft Sql Server, PostgreSql, Databricks, etc.).  Creation of this environment entails numerous steps that need to integrated and executed flawlessly.  This process can be time consuming and fraught with errors and includes the creation of multiple databases and/or schemas and other database objects, creation of multiple users with detailed specific privileges, the creation of meta data such as the CDM source record and webapi records, the importing of vocabulary data, the creation of sequences for primary keys for ETL processes, the creation of indexes and constraints, the importing of data, and the running of other processes such as Achilles.  Polites provides a way to execute all of these processes and an interface that allows the processes to be selected individually or run in groups.  
+  <ol>
+    <li>
+      Polites GitHub repository.  https://github.com/NACHC-CAD/polites. 
+    </li>
+    <li>
+      Broadsea GitHub repository. https://github.com/OHDSI/Broadsea. 
+    </li>
+    <li>
+      Ajit Londhe, Lee Evans, Sanjay Udoshi, Broadsea 3.0: “BROADening the ohdSEA”, https://www.ohdsi.org/wp-content/uploads/2023/10/Londhe-Ajit_Broadsea-3.0-BROADening-the-ohdSEA_2023symposium-Ajit-Londhe.pdf. 
+    </li>
+  </ol>
+</p>
+
+
+
