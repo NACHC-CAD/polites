@@ -42,6 +42,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
+	private JCheckBox createLocationAndProviderRecords =  new JCheckBox("Create Dummy Provider and Location Records");
 	// terminology
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
