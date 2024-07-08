@@ -260,11 +260,49 @@ CdmCsvDownloadIfNotFound=true
   Polites currently supports the functionality described below. 
   This is a high level summary of the basic functionality. 
   For details of each process see the specific documentation for each platform. 
+  <ul>
+    <li>
+      <a href="./sqlserver.html">Microsoft SqlServer</a>
+    </li>
+    <li style="color: gray;">
+      PostgreSql (coming soon)
+    </li>
+    <li style="color: gray;">
+      Databricks (coming soon)
+    </li>
+  </ul>
 </p>
 
-<img src="./img/index/polites.png" />
+<p>
+  <img src="./img/index/polites.png" />
+</p>
 
-
+<p>
+  <h3>Burn Everything to the Ground</h3>
+  Burn Everything to the Ground is the reset option. 
+  This option will remove everything created by Polites 
+  including all databases and users. 
+  
+  <h3>Create Database</h3>
+  This option creates the database that will be used for the Common Data Model (CDM)
+  
+  <h3>Create Database Users</h3>
+  This creates the database users that will be used to access the CDM 
+  and other databases such as the databases created by Achilles and other processes. 
+  The users created by this option are granted all of the privileges required. 
+  
+  <h3>Create Tables</h3>
+  This creates the tables in the CDM database using the ddl scripts from the OHDSI CDM project in Github. 
+  
+  <h3>Create CDM Source Record</h3>
+  This creates the record required in the cdm_source table of the CDM. 
+  
+  <h3>Create Dummy Location and Care Site Records</h3>
+  This option truncates the location and care_site tables 
+  and adds a single record in each table representing an unknown value 
+  (this is used in place of null for referential integrity). 
+  
+</p>
 
 
 
