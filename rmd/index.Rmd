@@ -69,13 +69,16 @@ output:
   <ul>
     <li>
       Install the dependencies for Polites and Broadsea. 
-      These include the following. 
+      These include the following:
         <ul>
           <li>
             Java version 8 and 11
           </li>
           <li>
             A git client
+          </li>
+          <li>
+            R and RStudio
           </li>
           <li>
             Microsoft SqlServer
@@ -244,6 +247,14 @@ CdmCsvZipFileName=Synthea27Nj_5.4.zip
 CdmCsvDownloadUrl=https://www.dropbox.com/scl/fi/mzomqfojvo4ol4tf74l1x/Synthea27Nj_5.4.zip?rlkey=lbd4b744dflcz19x53gjy70tj&dl=1
 CdmCsvDownloadIfNotFound=true
 
+# ---
+# DQD
+# ---
+
+DqdResultsSchemaName=synthea_omop_dqd_results
+
+
+
 </pre>
 </p>
 
@@ -284,7 +295,7 @@ CdmCsvDownloadIfNotFound=true
   including all databases and users. 
   
   <h3>Create Database</h3>
-  This option creates the database that will be used for the Common Data Model (CDM)
+  This option creates the database that will be used for the Common Data Model (CDM).
   
   <h3>Create Database Users</h3>
   This creates the database users that will be used to access the CDM 
