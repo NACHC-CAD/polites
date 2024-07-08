@@ -1,0 +1,48 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>Polites</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 3
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Introduction</h2>
+<p>
+  setting up an instance of OHDSI using Polites follows the following basic steps. 
+  <ul>
+    <li>
+      Install the prerequisites.  This includes the following.  
+      <ul>
+        <li>
+          Java version 8 and 11
+        </li>
+        <li>
+          A git client
+        </li>
+        <li>
+          Microsoft SqlServer
+        </li>
+        <li>
+          Docker
+        </li>
+      </ul>
+    </li>
+    <li>
+      Install, Configure and Run Broadsea
+    </li>
+    <li>
+      Install and Configure Polites
+    </li>
+    <li>
+      Run Polites
+    </li>
+  </ul>
+</p>
