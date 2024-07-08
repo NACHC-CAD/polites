@@ -42,7 +42,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
-	private JCheckBox createLocationAndProviderRecords =  new JCheckBox("Create Dummy Provider and Location Records");
+	private JCheckBox createLocationAndCareSiteRecords =  new JCheckBox("Create Dummy Location and Care Site Records");
 	// terminology
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
@@ -102,6 +102,7 @@ public class PolitesGui extends JFrame {
 				createDatabaseUsers.setSelected(selected);
 				createTables.setSelected(selected);
 				createCDMSourceRecord.setSelected(selected);
+				createLocationAndCareSiteRecords.setSelected(selected);
 				// terminology
 				loadTerminology.setSelected(selected);
 				truncateTerminology.setSelected(selected);
@@ -147,6 +148,7 @@ public class PolitesGui extends JFrame {
 		createGroup.add(createDatabaseUsers);
 		createGroup.add(createTables);
 		createGroup.add(createCDMSourceRecord);
+		createGroup.add(createLocationAndCareSiteRecords);
 		// terminology
 		GroupPanel terminology = new GroupPanel(checkboxPanel, "Terminology");
 		terminology.add(truncateTerminology);
@@ -260,6 +262,8 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Create Tables\n");
 		if (createCDMSourceRecord.isSelected())
 			confirmationMessage.append("- Create CDM Source Record\n");
+		if (createLocationAndCareSiteRecords.isSelected())
+			confirmationMessage.append("- Create Location and Care Site Dummy Record\n");
 		// terminology
 		if (truncateTerminology.isSelected())
 			confirmationMessage.append("- Truncate Terminology\n");
@@ -334,9 +338,9 @@ public class PolitesGui extends JFrame {
 				log.info("- Create Tables");
 				sel.add("createTables");
 			}
-			if (createCDMSourceRecord.isSelected()) {
-				log.info("- Create CDM Source Record");
-				sel.add("createCDMSourceRecord");
+			if (createLocationAndCareSiteRecords.isSelected()) {
+				log.info("- Create Location and Care Site Records");
+				sel.add("createLocationAndCareSiteRecords");
 			}
 			// terminology
 			if (truncateTerminology.isSelected()) {

@@ -15,6 +15,7 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabaseIndexes;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabaseTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateDatabaseUser;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateFhirResoureTables;
+import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateSequencesForPrimaryKeys;
 import org.nachc.tools.fhirtoomop.tools.build.impl.DisableConstraints;
@@ -74,6 +75,13 @@ public class ExecutePolitesGoAction {
 				CreateCdmSourceRecord.exec(conn);
 				Database.commit(conn);
 				log.info("Done with Create CDM Record.");
+			}
+			if (sel.contains("createLocationAndCareSiteRecords")) {
+				log("CREATING LOCATION AND CARE_SITE RECORDS");
+				use(conn);
+				CreateLocationAndCareSiteDummyRecords.exec(conn);
+				Database.commit(conn);
+				log.info("Done with Create location and care_site Records.");
 			}
 			// terminology
 			if (sel.contains("truncateTerminology")) {
