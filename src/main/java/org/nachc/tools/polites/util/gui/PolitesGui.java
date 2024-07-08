@@ -155,13 +155,6 @@ public class PolitesGui extends JFrame {
 		terminology.add(loadTerminology);
 		terminology.add(importTerminology);
 		terminology.add(exportTerminology);
-		// sequences, indexes, and constraints
-		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
-		seqIndCon.add(createSequencesForPrimaryKeys);
-		seqIndCon.add(createIndexes);
-		seqIndCon.add(addConstraints);
-		seqIndCon.add(disableConstraints);
-		seqIndCon.add(enableConstraints);
 		// truncate, import, export data tables (does not include terminology tables)
 		GroupPanel impExpDataTables = new GroupPanel(checkboxPanel, "Truncate, Import, and Export Data Tables (Does Not Include Terminology Tables)");
 		impExpDataTables.add(truncateDataTables);
@@ -175,6 +168,13 @@ public class PolitesGui extends JFrame {
 		// load synthea data
 		GroupPanel loadSynthea = new GroupPanel(checkboxPanel, "Load Synthea CSV Files");
 		loadSynthea.add(loadSyntheaCsv);
+		// sequences, indexes, and constraints
+		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
+		seqIndCon.add(createSequencesForPrimaryKeys);
+		seqIndCon.add(createIndexes);
+		seqIndCon.add(addConstraints);
+		seqIndCon.add(disableConstraints);
+		seqIndCon.add(enableConstraints);
 		// run achilles
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
 		runAchillesGroup.add(deleteWebApiRecords);

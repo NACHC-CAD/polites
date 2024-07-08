@@ -119,37 +119,6 @@ public class ExecutePolitesGoAction {
 				ExportTables.exportVocabTables();
 				log.info("Done with export terminology.");
 			}
-			// sequences, indexes, and constraints
-			if (sel.contains("createSequencesForPrimaryKeys")) {
-				log("CREATING SEQUENCES");
-				use(conn);
-				CreateSequencesForPrimaryKeys.exec(conn);
-				log.info("Done with Create Sequences.");
-			}
-			if (sel.contains("createIndexes")) {
-				log("CREATING CONSTRAINTS");
-				use(conn);
-				CreateDatabaseIndexes.exec(conn);
-				log.info("Done with Create Indexes.");
-			}
-			if (sel.contains("addConstraints")) {
-				log("ADDING CONSTRAINTS");
-				use(conn);
-				AddConstraints.exec();
-				log.info("Done Adding Constraints.");
-			}
-			if (sel.contains("disableConstraints")) {
-				log("DISABLING CONSTRAINTS");
-				use(conn);
-				DisableConstraints.exec(conn);
-				log.info("Done with Disable Constraints.");
-			}
-			if (sel.contains("enableConstraints")) {
-				log("ENABLING CONSTRAINTS");
-				use(conn);
-				EnableConstraints.exec(conn);
-				log.info("Done with Enable Constraints.");
-			}
 			// truncate, import, and export data tables
 			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
@@ -193,6 +162,37 @@ public class ExecutePolitesGoAction {
 				log("UPLOAD SYNTHEA CSV: NOT IMPLEMENTED YET ");
 				use(conn);
 				log.info("Done with Synthea Upload.");
+			}
+			// sequences, indexes, and constraints
+			if (sel.contains("createSequencesForPrimaryKeys")) {
+				log("CREATING SEQUENCES");
+				use(conn);
+				CreateSequencesForPrimaryKeys.exec(conn);
+				log.info("Done with Create Sequences.");
+			}
+			if (sel.contains("createIndexes")) {
+				log("CREATING CONSTRAINTS");
+				use(conn);
+				CreateDatabaseIndexes.exec(conn);
+				log.info("Done with Create Indexes.");
+			}
+			if (sel.contains("addConstraints")) {
+				log("ADDING CONSTRAINTS");
+				use(conn);
+				AddConstraints.exec();
+				log.info("Done Adding Constraints.");
+			}
+			if (sel.contains("disableConstraints")) {
+				log("DISABLING CONSTRAINTS");
+				use(conn);
+				DisableConstraints.exec(conn);
+				log.info("Done with Disable Constraints.");
+			}
+			if (sel.contains("enableConstraints")) {
+				log("ENABLING CONSTRAINTS");
+				use(conn);
+				EnableConstraints.exec(conn);
+				log.info("Done with Enable Constraints.");
 			}
 			// run achilles
 			if (sel.contains("deleteWebApiRecords")) {
