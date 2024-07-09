@@ -3,7 +3,7 @@ title: '<div><img src="ohdsi40x40.png"></img> <b>Polites</b> </div>'
 output:
    html_document:
         toc: TRUE
-        toc_depth: 3
+        toc_depth: 4
         toc_float:
           collapsed: false
 ---
@@ -289,29 +289,103 @@ DqdResultsSchemaName=synthea_omop_dqd_results
 </p>
 
 <p>
-  <h3>Burn Everything to the Ground</h3>
+
+  <!-- 
+  *
+  * Reset
+  *
+  * -->
+
+  <h3>Reset</h3>
+
+  <h4>Burn Everything to the Ground</h4>
   Burn Everything to the Ground is the reset option. 
   This option will remove everything created by Polites 
   including all databases and users. 
   
-  <h3>Create Database</h3>
+  <!-- 
+  *
+  * Create Database Objects
+  *
+  * -->
+
+  <h3>Create Database Objects</h3>
+
+  <h4>Create Database</h4>
   This option creates the database that will be used for the Common Data Model (CDM).
   
-  <h3>Create Database Users</h3>
+  <h4>Create Database Users</h4>
   This creates the database users that will be used to access the CDM 
   and other databases such as the databases created by Achilles and other processes. 
   The users created by this option are granted all of the privileges required. 
   
-  <h3>Create Tables</h3>
+  <h4>Create Tables</h4>
   This creates the tables in the CDM database using the ddl scripts from the OHDSI CDM project in Github. 
   
-  <h3>Create CDM Source Record</h3>
+  <h4>Create CDM Source Record</h4>
   This creates the record required in the cdm_source table of the CDM. 
   
-  <h3>Create Dummy Location and Care Site Records</h3>
-  This option truncates the location and care_site tables 
-  and adds a single record in each table representing an unknown value 
+  <h4><nobr>Create Dummy Records</nobr></h4>
+  The "Create Dummy Location and Care Site Records" option truncates the location and care_site tables 
+  and then adds a single record in each table representing an unknown value 
   (this is used in place of null for referential integrity). 
+  
+  <!-- 
+  *
+  * Terminology
+  *
+  * -->
+
+  <h3>Terminology</h3>
+  
+  <h4>Truncate Terminology</h4>
+  This option truncates all of the terminology tables. 
+  The following are considered to be terminology tables. 
+  All other tables are considered to be data tables. 
+  <ul>
+    <li>CONCEPT</li>
+    <li>VOCABULARY</li>
+    <li>DOMAIN</li>
+    <li>CONCEPT_CLASS</li>
+    <li>CONCEPT_RELATIONSHIP</li>
+    <li>RELATIONSHIP</li>
+    <li>CONCEPT_SYNONYM</li>
+    <li>CONCEPT_ANCESTOR</li>
+    <li>DRUG_STRENGTH</li>
+  </ul>
+
+  <h4>Load Terminology</h4>  
+  The "Load Terminology (From Athena Files)" option loads a directory of files 
+  that was downloaded and unzipped from 
+  <a href="https://athena.ohdsi.org/">Athena</a>.
+  
+  <h4>Import Terminology</h4>
+  The "Import Terminology (From an Exported Zip File)" option imports terminology tables 
+  from a zip file created using the "Export Terminology" option described directly below. 
+  This option will also load only the terminology tables from a complete export 
+  that was created using the "Export All CDM Tables" option of this application described below. 
+  
+  <h4>Export Terminology</h4>
+  This option creates a zip file that contains the terminology table as csv files. 
+  This export can be imported using the " (From an Exported Zip File)" option 
+  of this tool described directly above. 
+  
+  <h3><nobr>Truncate/Import/Export (data only)</nobr></h3>
+  
+  <h4>Truncate Data Tables</h4>
+  The "Truncate (Data Tables Only)" option truncates all of the data tables 
+  (but not the terminology tables) so a new data set can be imported into the database. 
+  
+  <h4>Import Data Tables</h4>
+  The "Import (Data Tables Only)" option imports data tables from a zip file 
+  created using the "Export (Data Tables Only)" option of this tool. 
+  This option will also import only the data tables from a zip file created 
+  using the "Export All CDM Tables" option of this application. 
+  
+  <h4>Export Data Tables</h4>
+  The "Export (Data Tables Only)" creates a zip file that contains CSV files 
+  that represent all of the data tables (and not the terminology tables). 
+  This zip file can be used by the "Import (Data Tables Only)" option of this tool described directly above. 
   
 </p>
 
