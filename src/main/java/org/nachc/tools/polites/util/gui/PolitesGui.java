@@ -64,9 +64,9 @@ public class PolitesGui extends JFrame {
 	private JCheckBox exportAll = new JCheckBox("Export All CDM Tables");
 	// load synthea
 	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
+	// run achilles
 	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
 	private JCheckBox deleteWebApiRecords = new JCheckBox("Delete WebAPI Records");
-	// run achilles
 	private JCheckBox createAchillesDatabase = new JCheckBox("Create Achilles Database");
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	// other controls

@@ -2,10 +2,34 @@ DBMS:
 sql server
 
 Error:
-com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the index 'synthea_omop_ach_res.dbo.idx_ar_aid', because it does not exist or you do not have permission.
+com.microsoft.sqlserver.jdbc.SQLServerException: The function 'row_number' must have an OVER clause with ORDER BY.
 
 SQL:
-drop index synthea_omop_ach_res.dbo.idx_ar_aid
+insert into synthea_omop.dbo.location (
+location_id,
+address_1,
+address_2,
+city,
+state,
+zip,
+county,
+location_source_value
+)
+select
+row_number() over () as location_id,
+locations.*
+from
+(select distinct
+cast(null as varchar)               address_1,
+cast(null as varchar)               address_2,
+p.city                              city,
+states_map.state_abbreviation       state,
+cast(null as varchar)               county,
+p.zip                               zip,
+p.zip                               location_source_value
+from synthea_native_csv.dbo.patients p
+left join synthea_omop.dbo.states_map states_map on p.state=states_map.state) locations
+
 
 R version:
 R version 4.2.3 (2023-03-15 ucrt)
@@ -23,6 +47,4 @@ Attached base packages:
 - base
 
 Other attached packages:
-- Achilles (1.7.2)
-- DatabaseConnector (6.3.2)
-- SqlRender (1.18.0)
+- ETLSyntheaBuilder (2.0)

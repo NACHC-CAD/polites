@@ -24,6 +24,7 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
+import org.nachc.tools.fhirtoomop.tools.syntheacsv.UploadSyntheaCsvFiles;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
@@ -158,9 +159,10 @@ public class ExecutePolitesGoAction {
 				log.info("Done exporting.");
 			}
 			// load synthea csv files
-			if (sel.contains("uploadSyntheaCsv")) {
-				log("UPLOAD SYNTHEA CSV: NOT IMPLEMENTED YET ");
+			if (sel.contains("loadSyntheaCsv")) {
+				log("UPLOADINS SYNTHEA CSV FILES");
 				use(conn);
+				UploadSyntheaCsvFiles.exec(conn);
 				log.info("Done with Synthea Upload.");
 			}
 			// sequences, indexes, and constraints
