@@ -138,16 +138,32 @@ output:
   that should work out of the box. 
   Modify this file to fit your specific implementation. 
 </p>
+
 <!-- app.properties -->
 <p>
   app.properties contents:
+
+<!--
+*
+* app.properties preformated section
+*
+-->
+
 <pre class="pre-scrollable">
 /auth/sqlserver-demo-app.properties
 </pre>
 </p>
-<!-- app.properties -->
+
+<!-- sqlserver-demo-app.properties -->
 <p>
   sqlserver-demo-app.properties contents:
+  
+<!--
+*
+* sqlserver-demo-app.properties preformated section
+*
+-->
+
 <pre class="pre-scrollable">
 # ---
 #
@@ -174,6 +190,7 @@ Url=jdbc:sqlserver://localhost:1433;encrypt=false;TrustServerCertificate=True
 Uid=synthea_omop
 Pwd=Sneaker01
 ServerName=localhost
+Port=1433
 FullySpecifiedCdmSchemaName=synthea_omop.dbo
 
 # ---
@@ -248,17 +265,37 @@ CdmCsvDownloadUrl=https://www.dropbox.com/scl/fi/mzomqfojvo4ol4tf74l1x/Synthea27
 CdmCsvDownloadIfNotFound=true
 
 # ---
-# DQD
+# DQD: Instance where Data Quality Dashboard data will be stored
 # ---
 
-DqdResultsSchemaName=synthea_omop_dqd_results
+DqdResultsSchemaName=synthea_omop_dqd
 
+# ---
+# SYNTHEA CSV
+# ---
+
+# booleans to use defaults if resources are not found
+SyntheaCsvDownloadTestFilesIfNotFound=false
+SyntheaCsvDownloadJdbcDriverIfNotFound=true
+# locations for test files
+SyntheaCsvTestFilesUrl=https://www.dropbox.com/scl/fi/zkh0k485yq9joqhxo5cws/csv.zip?rlkey=8afasqdy7h2hnudir1ieid2pw&dl=1
+SyntheaCsvFilesDir=C:\\temp\\polites\\synthea-csv\\csv
+SyntheaCsvJdbcLocation=C:\\temp\\polites\\drivers\\sqlserver
+SyntheaCsvJdbcDriverName=mssql-jdbc-12.6.2.jre11.jar
+SyntheaCsvJdbcDownloadUrl=https://www.dropbox.com/scl/fi/qyd8o6taim9q7ui52ftae/mssql-jdbc-12.6.2.jre11.jar?rlkey=kpo4w8n6uf21bj8ojfbc4k71k&st=2atiqqv7&dl=1
+# connection parameters
+SyntehsCsvUid=synthea_csv
+SyntheaCsvPwd=Sneaker01
+JdbcExtraSettings=encrypt=false;trustServerCertificate=true;databaseName=synthea_native_csv
+# database schema for raw data file upload
+SyntheaCsvNativeSchema=synthea_native_csv.dbo
+SyntheaCsvNativeDatabase=synthea_native_csv
+# synthea version
+SyntheaVersion=3.2.0
 
 
 </pre>
 </p>
-
-
 
 <!--
 *
@@ -370,6 +407,12 @@ DqdResultsSchemaName=synthea_omop_dqd_results
   This export can be imported using the " (From an Exported Zip File)" option 
   of this tool described directly above. 
   
+  <!-- 
+  *
+  * Truncate/Import/Export (data only)
+  *
+  * -->
+
   <h3><nobr>Truncate/Import/Export (data only)</nobr></h3>
   
   <h4>Truncate Data Tables</h4>
@@ -383,10 +426,102 @@ DqdResultsSchemaName=synthea_omop_dqd_results
   using the "Export All CDM Tables" option of this application. 
   
   <h4>Export Data Tables</h4>
-  The "Export (Data Tables Only)" creates a zip file that contains CSV files 
+  The "Export (Data Tables Only)" option creates a zip file that contains CSV files 
   that represent all of the data tables (and not the terminology tables). 
   This zip file can be used by the "Import (Data Tables Only)" option of this tool described directly above. 
+
+  <!-- 
+  *
+  * Truncate/Import/Export (all)
+  *
+  * -->
+
+  <h3><nobr>Truncate/Import/Export (all)</nobr></h3>
   
+  <h4>Truncate All Tables</h4>
+  The "Truncate All CDM Tables" option truncates all of the CDM tables 
+  (including all data and terminology tables). 
+  
+  <h4>Import All Tables</h4>
+  The "Import All CDM Tables" option imports data tables from a zip file 
+  created using the "Export All CDM Tables" option of this tool. 
+  This option will also import all tables in other zip files created by this application 
+  (e.g. Export Data Tables only and Export Terminology Tables Only). 
+  
+  <h4>Export All Tables</h4>
+  The "Export All CDM Tables" option creates a zip file that contains CSV files 
+  that represent all of the tables in the CDM including both data and terminology tables. 
+  This zip file can be used by the "Import All CDM Tables" option of this tool described directly above. 
+
+  <!-- 
+  *
+  * Synthea
+  *
+  * -->
+
+  <h3>Synthea</h3>
+
+  <h4>Load Synthea CSV</h4>
+  The "Load Synthea CSV Files" option loads files created by 
+  <a href="https://github.com/synthetichealth/synthea">Synthea</a> using the 
+  <a href="https://github.com/OHDSI/ETL-Synthea">OHDSI ETL-Synthea</A> R scripts. 
+  The Synthea files are loaded into a separate schema 
+  and then an ETL process is run to populate the OHDSI/OMOP CDM database. 
+  
+  <!-- 
+  *
+  * Sequences/Indexes/Constraints
+  *
+  * -->
+
+  <h3>Sequences/Indexes/Constraints</h3>
+
+  <h4>Create Sequences</h4>
+  The "Create Sequences for Primary Keys" option generates a series of sequences 
+  that can be used to manage primary keys when records are created. 
+  This option is primarily used in association with the creation of new records using FHIR resources. 
+
+  <h4>Create Indexes</h4>
+  This option creates the indexes for the CDM using the ddl scripts from the CDM project. 
+  This script is generally run after data are loaded and before Achilles is run. 
+  
+  <h4>Add Constraints</h4>
+  This option creates the constraints for the CDM using the ddl scripts from the CDM project. 
+  This script is generally run after data are loaded and before Achilles is run. 
+  
+  <h4>Disable Constraints</h4>
+  This option disables all constraints for the CDM. 
+  This does not included constraints that are integral to the table such as not null stipulations. 
+  This option is often run prior to truncating and replacing the data and or terminology tables. 
+  
+  <h4>Enable Constraints</h4>
+  This option turns the constraints for the CDM back on if they have been turned off. 
+
+  <!-- 
+  *
+  * Run Achilles
+  *
+  * -->
+
+  <h3>Run Achilles</h3>
+  
+  <h4>Delete WebAPI Records</h4>
+  This option deletes the source and source_daimon records in the webapi schema 
+  that is generally maintained in PostgreSql. 
+  
+  <h4>Add WebAPI Records</h4>
+  This option will add the webapi source and source_daimon records 
+  defined in the properties file used by this application. 
+  These records are required prior to running Achilles or Atlas. 
+  
+  <h4>Create Achilles Database</h4>
+  This option creates the Achilles database and configures all security options 
+  to allow existing database users used by this application and Achilles/Atlas, etc. access. 
+
+  <h4>Run Achilles</h4>
+  This option runs Achilles using a SQL script generated by Achilles using the SQL only option of that application. 
+  More information on Achilles is available at the github site for 
+  <a href="https://github.com/OHDSI/Achilles">Achilles</a>.
 </p>
 
 
