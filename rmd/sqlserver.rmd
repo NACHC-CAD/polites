@@ -34,6 +34,8 @@ output:
           Docker
         </li>
       </ul>
+      Most of these prerequisites can be installed using 
+      <a href="https://www.dropbox.com/s/x2yyr5qwkpeqvbt/YesPolitesInstaller.exe?dl=1">YesPolitesInstaller.exe</a>
     </li>
     <li>
       Install, Configure and Run Broadsea
