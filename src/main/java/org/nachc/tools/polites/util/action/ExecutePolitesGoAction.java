@@ -199,13 +199,11 @@ public class ExecutePolitesGoAction {
 			// run achilles
 			if (sel.contains("deleteWebApiRecords")) {
 				log("DELETING WEBAPI RECORDS");
-				use(conn);
 				DeleteWebApiRecords.exec();
 				log.info("Done deleting webapi records.");
 			}
 			if (sel.contains("addWebApiRecords")) {
 				log("ADDING WEBAPI RECORDS");
-				use(conn);
 				CreateWebApiRecords.exec();
 				log.info("Done adding webapi records.");
 			}
