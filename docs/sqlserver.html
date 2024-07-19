@@ -11,7 +11,7 @@
 
 
 
-<title> Polites</title>
+<title> Polites for Sql Server</title>
 
 <script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -364,8 +364,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img>
-<b>Polites</b></h1>
+<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img> <b>Polites
+for Sql Server</b></h1>
 
 </div>
 
@@ -376,44 +376,40 @@ div.tocify {
 *
 -->
 <h2>
-Introduction
+Installation
 </h2>
 <p>
-setting up an instance of OHDSI using Polites follows the following
-basic steps.
+<p>After completing the installation of the prerequisites described on
+the <a href="./index.html">home page</a> install Microsoft Sql Server
+according to the following.</p>
 <ul>
 <li>
-Install the prerequisites. This includes the following.<br />
-
+Install Microsoft Sql Server <br/> The installerS for the correct
+version of Microsoft Sql Server is included in the
+C:\_YES_POLITES\databases\sqlserver directory. Run the following two
+installers accepting all defaults.
 <ul>
 <li>
-Java version 8 and 11
+SQL2019-SSEI-Eval.exe
 </li>
 <li>
-A git client
-</li>
-<li>
-Microsoft SqlServer
-</li>
-<li>
-Docker
+SSMS-Setup-ENU-20.2.exe
 </li>
 </ul>
-Most of these prerequisites can be installed using
-<a href="https://www.dropbox.com/s/lsfz9gf4r0pokv2/YesPolitesInstaller-1.0.015.exe?dl=1">YesPolitesInstaller.exe</a>
 </li>
 <li>
-Install, Configure and Run Broadsea
-</li>
-<li>
-Install and Configure Polites<br/> The Polites application can be
-downloaded from
-<a href="https://www.dropbox.com/s/s4u7rzeqodk788i/polites-1.0.018.zip?dl=1">here</a>.
-</li>
-<li>
-Run Polites
+After running the above installers, open a cmd window as Administrator
+and run the init-sql-server.bat script. Running this script will update
+Sql Server configurations required for Broadsea such as mixed
+authentication mode and TCP/IP access.
+<p style="color: red;">
+This script must be run as Administrator or it will not work.
+</p>
 </li>
 </ul>
+You are now ready to install and run Polites. Click
+<a href="./index.html#_Platform_Details_">here</a> to return the the
+Polites Installation instructions on the home page for Polites.
 </p>
 
 
