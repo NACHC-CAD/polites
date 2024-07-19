@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title> Polites</title>
+
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> Polites </div></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-list"></span>
+     
+    Getting Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="sqlserver.html">Microsoft SqlServer</a>
+    </li>
+    <li class="dropdown-header">PostgreSql (comming soon)</li>
+    <li class="dropdown-header">Docker (comming soon)</li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/NACHC-CAD/polites">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img>
+<b>Polites</b></h1>
+
+</div>
+
+
+<!--
+*
+* Introduction
+*
+-->
+<h2>
+Introduction
+</h2>
+<p style="text-align: justify;">
+Polites<sup>1</sup> is a Java based tool that enables the automation of
+complete OHDSI implementations for either standalone (non-Docker) or
+Broadsea<sup>2</sup> based OHDSI deployments. Broadsea provides a
+turn-key solution with unparalleled ease of use and a standardized
+stable production deployment that includes an instance of a Common Data
+Model replete with test data in PostgreSql. “Broadsea 3.0 provides a
+flexible approach to deploying OHDSI tools that are typically
+challenging to set up, and establishes a framework for supporting new
+OHDSI tools to come. Any site, regardless of size, can deploy a wide
+range of OHDSI tools on a laptop or a production server”<sup>3</sup>
+using Broadsea. However, after initial deployment there are
+customizations that most implementations will want to make to create a
+production, test, or development instance of an OHDSI implementation.
+This includes the creation of an independent instance of the CDM that
+could be in the existing Broadsea instance of PostgreSql or in any of
+the other data management systems supported by OHDSI (including Oracle,
+Microsoft Sql Server, PostgreSql, Databricks, etc.). Creation of this
+environment entails numerous steps that need to integrated and executed
+flawlessly. This process can be time consuming and fraught with errors
+and includes the creation of multiple databases and/or schemas and other
+database objects, creation of multiple users with detailed specific
+privileges, the creation of meta data such as the CDM source record and
+webapi records, the importing of vocabulary data, the creation of
+sequences for primary keys for ETL processes, the creation of indexes
+and constraints, the importing of data, and the running of other
+processes such as Achilles. Polites provides a way to execute all of
+these processes and an interface that allows the processes to be
+selected individually or run in groups.<br />
+
+<ol>
+<li>
+Polites GitHub repository. <a
+href="https://github.com/NACHC-CAD/polites"
+class="uri">https://github.com/NACHC-CAD/polites</a>.
+</li>
+<li>
+Broadsea GitHub repository. <a href="https://github.com/OHDSI/Broadsea"
+class="uri">https://github.com/OHDSI/Broadsea</a>.
+</li>
+<li>
+Ajit Londhe, Lee Evans, Sanjay Udoshi, Broadsea 3.0: “BROADening the
+ohdSEA”, <a
+href="https://www.ohdsi.org/wp-content/uploads/2023/10/Londhe-Ajit_Broadsea-3.0-BROADening-the-ohdSEA_2023symposium-Ajit-Londhe.pdf"
+class="uri">https://www.ohdsi.org/wp-content/uploads/2023/10/Londhe-Ajit_Broadsea-3.0-BROADening-the-ohdSEA_2023symposium-Ajit-Londhe.pdf</a>.
+</li>
+</ol>
+</p>
+<!--
+*
+* Installation Overview
+*
+-->
+<h2>
+Prerequisites
+</h2>
+<h3>
+Prerequisites Overview
+</h3>
+<p>
+Installing and running Polites consists of the following steps. These
+steps can be done manually or can be done using the Yes installer
+described in the Automated Installation of Prerequisiets section below.
+<ul>
+<li>
+Install the dependencies for Polites and Broadsea. These include the
+following:
+<ul>
+<li>
+Java version 8 and 11
+</li>
+<li>
+A git client
+</li>
+<li>
+R and RStudio
+</li>
+<li>
+Microsoft SqlServer
+</li>
+<li>
+Docker
+</li>
+</ul>
+</li>
+<li>
+Install, Configure and Run Broadsea
+</li>
+<li>
+Install and Configure Polites
+</li>
+<li>
+Run Polites
+</li>
+</ul>
+</p>
+<!--
+*
+* Automated Installation of Prerequisites
+*
+-->
+<!-- Prerequisites Installation -->
+<h3>
+Prerequisites Installation
+</h3>
+<!-- Run the YesPolitesInstaller -->
+<h4>
+Run the YesPolitesInstaller
+</h4>
+<p>All of the prerequisites for Broadsea and Polites can be installed
+using the YesPolitesInstaller. Download the
+<a href="https://www.dropbox.com/scl/fi/sa66nfp7ijmvocyt0gf6h/YesPolitesInstaller-1.0.016.exe?rlkey=703p9nz8c3p2pi3rc25gqoa29&dl=1">
+YesPolitesInstaller.exe </a> file and run it. Downloading and running
+this file does take a few minutes. The installer creates a directory
+called _YES_POLITES that contains resources needed for Broadsea and
+other OHDSI tools and also installs and configures other required
+resources. Overall, the installer does the following:</p>
+<ul>
+<li>
+Installs a git client that will be used to download and install Broadsea
+and other resources. (the installation will also configure the
+certificates used by this client)
+</li>
+<li>
+Installs Java 8 and Java 11
+</li>
+<li>
+Installs a number of .bat files including the following:
+<ul>
+<li>
+jv: Changes the Java version to 8 or 11
+</li>
+<li>
+git-detials: gives the git information about the current repository
+</ul>
+</li>
+<li>
+Downloads a copy of the installer for Docker (this insures that all
+instances of Polites are using the same version of Docker).
+</li>
+<li>
+Downloads installers for the databases supported by polites
+</li>
+<li>
+Installs the correct version of R
+</li>
+<li>
+Downloads installers for RStudio and RTools
+</li>
+<li>
+Installs database specific dependencies (e.g. installs and configures
+the JDBC DLL required by Sql Server and updates environment variables to
+point to the correct version of this DLL)
+</li>
+<li>
+Updates the system environment variables to put required tools on the
+system path
+</li>
+</ul>
+<!-- Install Docker -->
+<h4>
+Install Docker
+</h4>
+<p>Navigate to C:\_YES_POLITES\tools\docker and run the Docker Desktop
+Installer.exe file. Accept all of the default values. <br/>
+<img src="img/index/install-docker.png" /> <br/></p>
+<!-- Install Broadsea -->
+<h4>
+Install Broadsea
+</h4>
+Broadsea can be installed and configured by running the
+C:\_YES_POLITES\workspace\install-broadsea.bat file. This process will
+install Broadsea v3.0.0 and update the configuration for the current
+installation. This process also puts the following .bat files in the
+Broadsea directory. These .bat files can be used to manage Broadsea.
+<ul>
+<li>
+start.bat<br/> This script will start Broadsea
+</li>
+<li>
+stop.bat<br/> This script will stop Broadsea
+</li>
+<li>
+clean-docker.sh<br/> This script will delete all images, containers, and
+volumes from Docker
+</li>
+<li>
+reset.bat<br/> This script will clear Docker of all images, containers,
+and volumes but will preserve the data stored in the Postgres database
+used by Broadsea
+</li>
+<li>
+show-docker.bat<br/> This script will show the images, containers, and
+volumes that exist in Docker
+</li>
+</ul>
+<!-- Start Broadsea -->
+<h4>
+Start Broadsea
+</h4>
+<p>Before running Broadsea you will need to start Docker Desktop (there
+should be a shortcut on your desktop from the initial installation). To
+run Broadsea, open a cmd prompt, navigate to
+C:\_YES_POLITES\workspace\Broadsea and then execute the start.bat
+script.</p>
+<h2>
+Platform Details
+</h2>
+Support for Microsoft Sql Server, PostgreSql, and Databricks is targeted
+for the completion of the first relase of Polites. This release of
+Polites currently supports Microsoft Sql Server.<br />
+Processes specific to the installation for each platform are given in
+the pages listed below. Execute the process for the platform you are
+targeting.
+<ul>
+<li>
+<a href="./sqlserver.html">Microsoft SqlServer</a>
+</li>
+<li style="color: gray;">
+PostgreSql (coming soon)
+</li>
+<li style="color: gray;">
+Databricks (coming soon)
+</li>
+</ul>
+<!--
+*
+* Polites Installation
+*
+-->
+<h2>
+Polites Installation
+</h2>
+<p>
+Polites is installed by Downloading the zip file from the latest
+release, Unziping the files, and then running the polites.bat file
+(which runs “java -jar polites.jar” with some additional performance
+parameters). Releases of Polites can be found at
+<a href="https://github.com/NACHC-CAD/polites/releases">https://github.com/NACHC-CAD/polites/releases</a>.
+<br/> <img src="img/index/download.png" />
+</p>
+<p>
+After downloading and extracting the zip file you should see the
+following files. <br/> <img src="img/index/extracted.png" /> <br/> The
+auth folder contains two files: app.properties and
+sqlserver-demo-app.properties. The sqlserver-demo-app.properties file
+contains and example configuration for Microsoft SqlServer that should
+work out of the box. The app.properties file contains a single line that
+points to the actual configuration file. This alows the configuration
+file and any sensitive information this file might contain such as
+passwords to exist anywhere that is accessible by the file system.
+</p>
+<!--
+*
+* Polites Configuration
+*
+-->
+<h2>
+Polites Configuration
+</h2>
+<p>
+All configuration for the Polites application is in a single
+configuration file. This configureation file is pointed to by the
+./auth/app.properties file as shown below. Note the path to the
+configuration file can be on the class path or can be an absolute
+reference (e.g. C:\path\to\myfile.properties). The downloaded zip file
+contains an exmple configuration for a Microsoft SqlServer
+implementation that should work out of the box. Modify this file to fit
+your specific implementation.
+</p>
+<!-- app.properties -->
+<p>
+<p>app.properties contents:</p>
+<!--
+*
+* app.properties preformated section
+*
+-->
+<pre class="pre-scrollable">
+/auth/sqlserver-demo-app.properties
+</pre>
+</p>
+<!-- sqlserver-demo-app.properties -->
+<p>
+<p>sqlserver-demo-app.properties contents:</p>
+<!--
+*
+* sqlserver-demo-app.properties preformated section
+*
+-->
+<pre class="pre-scrollable">
+# ---
+#
+# Example properties file for Polites using Microsoft Sql Server.  
+#
+# ---
+
+# ---
+# GLOBAL PARAMETERS
+# ---
+
+DbmsName=sql server
+CdmVersion=5.4
+ExportDir=C:\\temp\\polites\\export\\sql-server\\synthe_omop
+
+# ---
+# DATABASE CONNECTION INFORMATION FOR THE CDM INSTANCE
+# The bootstrapUrl parameter is used for system level actions like creating new databases
+# The url parameter is used to access the CDM instance and other local databases (e.g. achilles data)
+# ---
+
+BootstrapUrl=jdbc:sqlserver://localhost;databaseName=master;integratedSecurity=true;encrypt=false
+Url=jdbc:sqlserver://localhost:1433;encrypt=false;TrustServerCertificate=True
+Uid=polites_omop
+Pwd=Sneaker01
+ServerName=localhost
+Port=1433
+FullySpecifiedCdmSchemaName=polites_omop.dbo
+
+# ---
+# DATABASE DRIVER
+# ---
+
+DatabaseDriverName=sqlServer_12_6
+DatabaseDrvierPath=C:\\temp\\polites\\drivers\\sqlserver
+
+# ---
+# POSTGRES CONNECTION 
+# Connection parameters to connect to the PostgreSql instance hosting the webapi schema.
+# ---
+
+# bootstrap connection for atlas postgres
+PostgresBootstrapUrl=jdbc:postgresql://127.0.0.1:5432
+PostgresBootstrapUid=postgres
+PostgresBootstrapPwd=mypass
+PostgresServer=127.0.0.1/postgres
+PostgresPort=5432
+PostgresWebApiDatabaseName=postgres
+PostgresWebApiSchemaName=webapi
+PostgresPathToDriver=C:\\temp\\polites\\drivers\\postgres\\42.3.3
+
+# ---
+# VALUES USED TO CREATE CDM_SOURCE RECORD
+# These values are used by the Data Quality Dashboard. Documented here:
+#   https://nachc-cad.github.io/fhir-to-omop/pages/navbar/ohdsi-tools/dqd/DataQualityDashboard.html
+#   https://ohdsi.github.io/DataQualityDashboard/ 
+# ---
+
+CdmSourceName=NACHC Test
+CdmSourceAbbreviation=NACHC-TEST
+CdmHolder=johngresh@curlewconsulting.com
+SourceDescription=Test database
+SourceDocumentationReference=https://github.com/NACHC-CAD/fhir-to-omop
+CdmEtlReference=N/A 
+SourceReleaseDate=2021-12-01
+CdmReleaseDate=2021-12-01
+VocabularyVersion=v5.0 04-FEB-22
+CdmVersionConceptId=756265
+
+# ---
+# TERMINOLOGY
+# ---
+TerminologyRootDir=C:\\temp\\polites\\default-vocabulary\\
+TerminologyDownloadIfNotFound=true
+TerminologyDownloadUrl=https://www.dropbox.com/s/2f1xg20yjbiup27/2023-01-01-vocabulary_download_v5_%7Bd496576d-0027-4564-b598-491e7f1ac26f%7D_1672620434076.zip?st=lnn6zg75&dl=1
+
+# ---
+# WEBAPI
+# ---
+
+# parameters for webapi source and source_daimon records
+AtlasDataSourceName=Eunomia Loaded From Polites
+AtlasDataSourceKey=polites_omop
+AchillesResultsDatabase=polites_omop_ach_res
+AchillesResultsSchema=dbo
+AchillesTempDatabase=polites_omop_ach_temp
+AchillesTempSchema=dbo
+AchillesVocabDatabase=polites_omop
+AchillesVocabSchema=dbo
+AtlasCdmUrl=jdbc:sqlserver://host.docker.internal:1433;databaseName=polites_omop;encrypt=false;TrustServerCertificate=True;user=polites_omop;password=Sneaker01
+
+# ---
+# CDM CSV
+# ---
+
+CdmCsvZipFileLocation=C:\\temp\\polites\\cdm-csv\\
+CdmCsvZipFileName=demodb.zip
+CdmCsvDownloadUrl=https://www.dropbox.com/scl/fi/87p8c1oyvzmvsfei15z1m/demodb.zip?rlkey=x2libh0dmk06bnc4m6fu81iho&dl=1
+CdmCsvDownloadIfNotFound=true
+
+# ---
+# DQD: Instance where Data Quality Dashboard data will be stored
+# ---
+
+DqdResultsSchemaName=polites_omop_dqd
+
+# ---
+# SYNTHEA CSV
+# ---
+
+# booleans to use defaults if resources are not found
+SyntheaCsvDownloadTestFilesIfNotFound=false
+SyntheaCsvDownloadJdbcDriverIfNotFound=true
+# locations for test files
+SyntheaCsvTestFilesUrl=https://www.dropbox.com/scl/fi/zkh0k485yq9joqhxo5cws/csv.zip?rlkey=8afasqdy7h2hnudir1ieid2pw&dl=1
+SyntheaCsvFilesDir=C:\\temp\\polites\\synthea-csv\\csv
+SyntheaCsvJdbcLocation=C:\\temp\\polites\\drivers\\sqlserver
+SyntheaCsvJdbcDriverName=mssql-jdbc-12.6.2.jre11.jar
+SyntheaCsvJdbcDownloadUrl=https://www.dropbox.com/scl/fi/qyd8o6taim9q7ui52ftae/mssql-jdbc-12.6.2.jre11.jar?rlkey=kpo4w8n6uf21bj8ojfbc4k71k&st=2atiqqv7&dl=1
+# connection parameters
+SyntehsCsvUid=polites_omop
+SyntheaCsvPwd=Sneaker01
+JdbcExtraSettings=encrypt=false;trustServerCertificate=true;databaseName=synthea_native_csv
+# database schema for raw data file upload
+SyntheaCsvNativeSchema=synthea_native_csv.dbo
+SyntheaCsvNativeDatabase=synthea_native_csv
+# synthea version
+SyntheaVersion=3.2.0
+
+
+
+</pre>
+</p>
+<!--
+*
+* Basic Functionality
+*
+-->
+<h2>
+Basic Functionality
+</h2>
+<p style="text-align: justify;">
+Polites currently supports the functionality described below.
+</p>
+<p>
+<img src="img/index/polites.png" />
+</p>
+<p>
+<p><!-- 
+  *
+  * Reset
+  *
+  * --></p>
+<h3>
+Reset
+</h3>
+<h4>
+Burn Everything to the Ground
+</h4>
+<p>Burn Everything to the Ground is the reset option. This option will
+remove everything created by Polites including all databases and
+users.</p>
+<p><!-- 
+  *
+  * Create Database Objects
+  *
+  * --></p>
+<h3>
+Create Database Objects
+</h3>
+<h4>
+Create Database
+</h4>
+<p>This option creates the database that will be used for the Common
+Data Model (CDM).</p>
+<h4>
+Create Database Users
+</h4>
+<p>This creates the database users that will be used to access the CDM
+and other databases such as the databases created by Achilles and other
+processes. The users created by this option are granted all of the
+privileges required.</p>
+<h4>
+Create Tables
+</h4>
+<p>This creates the tables in the CDM database using the ddl scripts
+from the OHDSI CDM project in Github.</p>
+<h4>
+Create CDM Source Record
+</h4>
+<p>This creates the record required in the cdm_source table of the
+CDM.</p>
+<h4>
+<nobr>Create Dummy Records</nobr>
+</h4>
+<p>The “Create Dummy Location and Care Site Records” option truncates
+the location and care_site tables and then adds a single record in each
+table representing an unknown value (this is used in place of null for
+referential integrity).</p>
+<p><!-- 
+  *
+  * Terminology
+  *
+  * --></p>
+<h3>
+Terminology
+</h3>
+<h4>
+Truncate Terminology
+</h4>
+This option truncates all of the terminology tables. The following are
+considered to be terminology tables. All other tables are considered to
+be data tables.
+<ul>
+<li>
+CONCEPT
+</li>
+<li>
+VOCABULARY
+</li>
+<li>
+DOMAIN
+</li>
+<li>
+CONCEPT_CLASS
+</li>
+<li>
+CONCEPT_RELATIONSHIP
+</li>
+<li>
+RELATIONSHIP
+</li>
+<li>
+CONCEPT_SYNONYM
+</li>
+<li>
+CONCEPT_ANCESTOR
+</li>
+<li>
+DRUG_STRENGTH
+</li>
+</ul>
+<h4>
+Load Terminology
+</h4>
+<p>The “Load Terminology (From Athena Files)” option loads a directory
+of files that was downloaded and unzipped from
+<a href="https://athena.ohdsi.org/">Athena</a>.</p>
+<h4>
+Import Terminology
+</h4>
+<p>The “Import Terminology (From an Exported Zip File)” option imports
+terminology tables from a zip file created using the “Export
+Terminology” option described directly below. This option will also load
+only the terminology tables from a complete export that was created
+using the “Export All CDM Tables” option of this application described
+below.</p>
+<h4>
+Export Terminology
+</h4>
+<p>This option creates a zip file that contains the terminology table as
+csv files. This export can be imported using the ” (From an Exported Zip
+File)” option of this tool described directly above.</p>
+<p><!-- 
+  *
+  * Truncate/Import/Export (data only)
+  *
+  * --></p>
+<h3>
+<nobr>Truncate/Import/Export (data only)</nobr>
+</h3>
+<h4>
+Truncate Data Tables
+</h4>
+<p>The “Truncate (Data Tables Only)” option truncates all of the data
+tables (but not the terminology tables) so a new data set can be
+imported into the database.</p>
+<h4>
+Import Data Tables
+</h4>
+<p>The “Import (Data Tables Only)” option imports data tables from a zip
+file created using the “Export (Data Tables Only)” option of this tool.
+This option will also import only the data tables from a zip file
+created using the “Export All CDM Tables” option of this
+application.</p>
+<h4>
+Export Data Tables
+</h4>
+<p>The “Export (Data Tables Only)” option creates a zip file that
+contains CSV files that represent all of the data tables (and not the
+terminology tables). This zip file can be used by the “Import (Data
+Tables Only)” option of this tool described directly above.</p>
+<p><!-- 
+  *
+  * Truncate/Import/Export (all)
+  *
+  * --></p>
+<h3>
+<nobr>Truncate/Import/Export (all)</nobr>
+</h3>
+<h4>
+Truncate All Tables
+</h4>
+<p>The “Truncate All CDM Tables” option truncates all of the CDM tables
+(including all data and terminology tables).</p>
+<h4>
+Import All Tables
+</h4>
+<p>The “Import All CDM Tables” option imports data tables from a zip
+file created using the “Export All CDM Tables” option of this tool. This
+option will also import all tables in other zip files created by this
+application (e.g. Export Data Tables only and Export Terminology Tables
+Only).</p>
+<h4>
+Export All Tables
+</h4>
+<p>The “Export All CDM Tables” option creates a zip file that contains
+CSV files that represent all of the tables in the CDM including both
+data and terminology tables. This zip file can be used by the “Import
+All CDM Tables” option of this tool described directly above.</p>
+<p><!-- 
+  *
+  * Synthea
+  *
+  * --></p>
+<h3>
+Synthea
+</h3>
+<h4>
+Load Synthea CSV
+</h4>
+<p>The “Load Synthea CSV Files” option loads files created by
+<a href="https://github.com/synthetichealth/synthea">Synthea</a> using
+the <a href="https://github.com/OHDSI/ETL-Synthea">OHDSI ETL-Synthea</A>
+R scripts. The Synthea files are loaded into a separate schema and then
+an ETL process is run to populate the OHDSI/OMOP CDM database.</p>
+<p><!-- 
+  *
+  * Sequences/Indexes/Constraints
+  *
+  * --></p>
+<h3>
+Sequences/Indexes/Constraints
+</h3>
+<h4>
+Create Sequences
+</h4>
+<p>The “Create Sequences for Primary Keys” option generates a series of
+sequences that can be used to manage primary keys when records are
+created. This option is primarily used in association with the creation
+of new records using FHIR resources.</p>
+<h4>
+Create Indexes
+</h4>
+<p>This option creates the indexes for the CDM using the ddl scripts
+from the CDM project. This script is generally run after data are loaded
+and before Achilles is run.</p>
+<h4>
+Add Constraints
+</h4>
+<p>This option creates the constraints for the CDM using the ddl scripts
+from the CDM project. This script is generally run after data are loaded
+and before Achilles is run.</p>
+<h4>
+Disable Constraints
+</h4>
+<p>This option disables all constraints for the CDM. This does not
+included constraints that are integral to the table such as not null
+stipulations. This option is often run prior to truncating and replacing
+the data and or terminology tables.</p>
+<h4>
+Enable Constraints
+</h4>
+<p>This option turns the constraints for the CDM back on if they have
+been turned off.</p>
+<p><!-- 
+  *
+  * Run Achilles
+  *
+  * --></p>
+<h3>
+Run Achilles
+</h3>
+<h4>
+Delete WebAPI Records
+</h4>
+<p>This option deletes the source and source_daimon records in the
+webapi schema that is generally maintained in PostgreSql.</p>
+<h4>
+Add WebAPI Records
+</h4>
+<p>This option will add the webapi source and source_daimon records
+defined in the properties file used by this application. These records
+are required prior to running Achilles or Atlas.</p>
+<h4>
+Create Achilles Database
+</h4>
+<p>This option creates the Achilles database and configures all security
+options to allow existing database users used by this application and
+Achilles/Atlas, etc. access.</p>
+<h4>
+Run Achilles
+</h4>
+This option runs Achilles using a SQL script generated by Achilles using
+the SQL only option of that application. More information on Achilles is
+available at the github site for
+<a href="https://github.com/OHDSI/Achilles">Achilles</a>.
+</p>
+<h2>
+Huzzah!
+</h2>
+After using the above functionality to create and populate your OHDSI
+Instance you are now ready to start using the OHDSI tools to view and
+manipulate your data.
+<h3>
+Atlas
+</h3>
+<p>With Broadsea running, you should now be able to launch Atlas by
+opening a browser and navigating to
+<a href="http://127.0.0.1/atlas">http://127.0.0.1/atlas</a>.</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

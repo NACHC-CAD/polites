@@ -1,0 +1,45 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>Polites for Sql Server</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 3
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Installation</h2>
+<p>
+  After completing the installation of the prerequisites described on the 
+  <a href="./index.html">home page</a> install Microsoft Sql Server according to the following. 
+  
+  <ul>
+    <li>
+      Install Microsoft Sql Server
+      <br/>
+      The installerS for the correct version of Microsoft Sql Server is included in the 
+      C:\\_YES_POLITES\\databases\\sqlserver directory. 
+      Run the following two installers accepting all defaults. 
+      <ul>
+        <li>SQL2019-SSEI-Eval.exe</li>
+        <li>SSMS-Setup-ENU-20.2.exe</li>
+      </ul>
+    </li>
+    <li>
+      After running the above installers, open a cmd window as Administrator 
+      and run the init-sql-server.bat script. 
+      Running this script will update Sql Server configurations required for Broadsea 
+      such as mixed authentication mode and TCP/IP access. 
+      <p style="color: red;">This script must be run as Administrator or it will not work.</p>
+    </li>
+  </ul>
+  You are now ready to install and run Polites. 
+  Click <a href="./index.html#_Platform_Details_">here</a> to return the the Polites Installation instructions 
+  on the home page for Polites. 
+</p>

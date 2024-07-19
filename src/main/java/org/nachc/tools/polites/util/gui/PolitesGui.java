@@ -42,6 +42,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
+	private JCheckBox createLocationAndCareSiteRecords =  new JCheckBox("Create Dummy Location and Care Site Records");
 	// terminology
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
@@ -63,9 +64,9 @@ public class PolitesGui extends JFrame {
 	private JCheckBox exportAll = new JCheckBox("Export All CDM Tables");
 	// load synthea
 	private JCheckBox loadSyntheaCsv = new JCheckBox("Load Synthea CSV files");
+	// run achilles
 	private JCheckBox addWebApiRecords = new JCheckBox("Add WebAPI Records");
 	private JCheckBox deleteWebApiRecords = new JCheckBox("Delete WebAPI Records");
-	// run achilles
 	private JCheckBox createAchillesDatabase = new JCheckBox("Create Achilles Database");
 	private JCheckBox runAchilles = new JCheckBox("Run Achilles");
 	// other controls
@@ -101,6 +102,7 @@ public class PolitesGui extends JFrame {
 				createDatabaseUsers.setSelected(selected);
 				createTables.setSelected(selected);
 				createCDMSourceRecord.setSelected(selected);
+				createLocationAndCareSiteRecords.setSelected(selected);
 				// terminology
 				loadTerminology.setSelected(selected);
 				truncateTerminology.setSelected(selected);
@@ -146,19 +148,13 @@ public class PolitesGui extends JFrame {
 		createGroup.add(createDatabaseUsers);
 		createGroup.add(createTables);
 		createGroup.add(createCDMSourceRecord);
+		createGroup.add(createLocationAndCareSiteRecords);
 		// terminology
 		GroupPanel terminology = new GroupPanel(checkboxPanel, "Terminology");
 		terminology.add(truncateTerminology);
 		terminology.add(loadTerminology);
 		terminology.add(importTerminology);
 		terminology.add(exportTerminology);
-		// sequences, indexes, and constraints
-		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
-		seqIndCon.add(createSequencesForPrimaryKeys);
-		seqIndCon.add(createIndexes);
-		seqIndCon.add(addConstraints);
-		seqIndCon.add(disableConstraints);
-		seqIndCon.add(enableConstraints);
 		// truncate, import, export data tables (does not include terminology tables)
 		GroupPanel impExpDataTables = new GroupPanel(checkboxPanel, "Truncate, Import, and Export Data Tables (Does Not Include Terminology Tables)");
 		impExpDataTables.add(truncateDataTables);
@@ -172,6 +168,13 @@ public class PolitesGui extends JFrame {
 		// load synthea data
 		GroupPanel loadSynthea = new GroupPanel(checkboxPanel, "Load Synthea CSV Files");
 		loadSynthea.add(loadSyntheaCsv);
+		// sequences, indexes, and constraints
+		GroupPanel seqIndCon = new GroupPanel(checkboxPanel, "Sequences, Indexes, and Constraints");
+		seqIndCon.add(createSequencesForPrimaryKeys);
+		seqIndCon.add(createIndexes);
+		seqIndCon.add(addConstraints);
+		seqIndCon.add(disableConstraints);
+		seqIndCon.add(enableConstraints);
 		// run achilles
 		GroupPanel runAchillesGroup = new GroupPanel(checkboxPanel, "Run Achilles");
 		runAchillesGroup.add(deleteWebApiRecords);
@@ -259,6 +262,8 @@ public class PolitesGui extends JFrame {
 			confirmationMessage.append("- Create Tables\n");
 		if (createCDMSourceRecord.isSelected())
 			confirmationMessage.append("- Create CDM Source Record\n");
+		if (createLocationAndCareSiteRecords.isSelected())
+			confirmationMessage.append("- Create Location and Care Site Dummy Record\n");
 		// terminology
 		if (truncateTerminology.isSelected())
 			confirmationMessage.append("- Truncate Terminology\n");
@@ -333,9 +338,9 @@ public class PolitesGui extends JFrame {
 				log.info("- Create Tables");
 				sel.add("createTables");
 			}
-			if (createCDMSourceRecord.isSelected()) {
-				log.info("- Create CDM Source Record");
-				sel.add("createCDMSourceRecord");
+			if (createLocationAndCareSiteRecords.isSelected()) {
+				log.info("- Create Location and Care Site Records");
+				sel.add("createLocationAndCareSiteRecords");
 			}
 			// terminology
 			if (truncateTerminology.isSelected()) {

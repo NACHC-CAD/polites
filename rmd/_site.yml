@@ -1,0 +1,25 @@
+name: "Polites"
+output_dir: "../docs"
+output:
+  html_document:
+    theme: cosmo
+    css: style.css
+    includes:
+      in_header: "favicon.html"
+exclude: ["extras"]
+navbar:
+  title: '<div><img src="ohdsi16x16.png"></img> Polites </div>'
+  right:
+    - icon: fa-github
+      href: https://github.com/NACHC-CAD/polites
+  left:
+    - text: "Getting Started"
+      icon: fa-list
+      menu:
+        - text: "Home"
+          href: index.html
+        - text: "Microsoft SqlServer"
+          href: sqlserver.html
+        - text: "PostgreSql (comming soon)"
+        - text: "Docker (comming soon)"
+
