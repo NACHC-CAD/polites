@@ -635,5 +635,3 @@ With Broadsea running, you should now be able to launch Atlas by opening a brows
 and navigating to <a href="http://127.0.0.1/atlas">http://127.0.0.1/atlas</a>. 
 
 
-
-
