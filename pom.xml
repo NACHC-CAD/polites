@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<version>1.0.018</version>
+		<version>1.0.019</version>
 	</properties>
 
 	<groupId>org.nachc.cad.tools</groupId>
@@ -58,13 +58,13 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.7.051</version>
+		    <version>1.7.052</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.nachc.cad.tools</groupId>
 			<artifactId>core</artifactId>
-			<version>1.1.050</version>
+			<version>1.1.051</version>
 		</dependency>
 
 		<!-- 
@@ -274,5 +274,4 @@
 	</build>
 
 </project>
-
 
