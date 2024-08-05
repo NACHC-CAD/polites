@@ -338,6 +338,10 @@ public class PolitesGui extends JFrame {
 				log.info("- Create Tables");
 				sel.add("createTables");
 			}
+			if (createCDMSourceRecord.isSelected()) {
+				log.info("- Create CDM Source Record");
+				sel.add("createCDMSourceRecord");
+			}			
 			if (createLocationAndCareSiteRecords.isSelected()) {
 				log.info("- Create Location and Care Site Records");
 				sel.add("createLocationAndCareSiteRecords");
