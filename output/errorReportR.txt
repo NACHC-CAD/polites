@@ -1,0 +1,42 @@
+Thread: Main
+Message:  java.lang.UnsupportedClassVersionError: com/microsoft/sqlserver/jdbc/SQLServerDriver has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+Level:  FATAL
+Time:  2024-09-17 05:25:25
+
+Stack trace:
+11: (function (condition) 
+{
+    if (is(condition, "error")) {
+        log("FATAL"
+10: stop(list("java.lang.UnsupportedClassVersionError: com/microsoft/sqlserver/
+9: rJava::.jfindClass(as.character(driverClass)[1])
+8: rJava::is.jnull(rJava::.jfindClass(as.character(driverClass)[1]))
+7: loadJdbcDriver(driverClass, classPath)
+6: getJbcDriverSingleton("com.microsoft.sqlserver.jdbc.SQLServerDriver", jarPa
+5: connectSqlServer(connectionDetails)
+4: connectUsingJdbc(connectionDetails)
+3: DatabaseConnector::connect(connectionDetails = connectionDetails)
+2: .getSourceName(connectionDetails, cdmDatabaseSchema)
+1: Achilles::achilles(connectionDetails = connectionDetails, cdmVersion = cdmV
+
+R version:
+R version 4.2.3 (2023-03-15 ucrt)
+
+Platform:
+x86_64-w64-mingw32
+
+Attached base packages:
+- stats
+- graphics
+- grDevices
+- utils
+- datasets
+- methods
+- base
+
+Other attached packages:
+- Achilles (1.7.2)
+- DatabaseConnector (6.3.2)
+- SqlRender (1.18.0)
+
+

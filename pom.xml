@@ -4,6 +4,9 @@
 
 	<properties>
 		<version>1.0.022</version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
 	</properties>
 
 	<groupId>org.nachc.cad.tools</groupId>
@@ -58,7 +61,7 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.7.053</version>
+		    <version>1.7.054</version>
 		</dependency>
 
 		<dependency>
@@ -164,8 +167,10 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 					<configuration>
-						<release>11</release>
-					</configuration>
+	                    <source>${maven.compiler.source}</source>
+	                    <target>${maven.compiler.target}</target>
+						<release>${maven.compiler.release}</release>
+	 					</configuration>
 				</plugin>
 
 			</plugins>

@@ -1,0 +1,104 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>Polites Quick Start Guide</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 4
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Introduction</h2>
+<p style="text-align: justify;">
+Getting started with OHDSI using Polites invoves two steps. 
+<ul>
+  <li>Downloading and installing dependent software and tools</li>
+  <li>Running Polites</li>
+</ul>
+
+<!--
+*
+* Download
+*
+-->
+
+<h2>Download</h2>
+<p style="text-align: justify;">
+  To download and install dependent software download and run the 
+          <a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>. 
+  This will install the C:\\_YES_POLITES folder. The installer gives you the option to install at a different location. 
+  If you istall at a different location, the installer will create _YES_POLITES as a short cut to that location. 
+  For example, I generally install things to my D: drive as I have little space left on my C: drive. 
+</p>
+<p>  
+  <img src="./img/quick-start/yes-polites-folder.jpg" />
+</p>
+
+
+<!--
+*
+* Install
+*
+-->
+
+<h2>Install</h2>
+Before running any of the installers shown below, remove any existing versions of the software that may exist. 
+<p style="text-align: justify;">
+  After running YesPolitesInstaller.exe 
+  <ul>
+    <li>
+      <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below. 
+      Note that R has already been installed at C:\\_YES_POLITES\\tools\\r\\R and this folder has been added to your path environment variable. 
+      Installing RStudio is optional. 
+      <ul>
+        <li>RStudio-2024.04.2-764.exe</li>
+        <li>rtools42-5355-5357.exe</li>
+      </ul>
+    </li>
+    <li><b>Docker: </b>Run C:\\_YES_POLITES\\docker\\Docker Desktop Installer.exe/li>
+    <li>
+      <b>Database:</b> 
+      Run any installers specific to the DBMS system you are using. 
+      These installers are found in C:\\_YES_POLITES\\databases. 
+      For example, if you are using Microsoft SQL Server, run the installers shown below 
+      (Note that the JDBC driver and .dll files required for SQL Server have already been installed in the sqlserver\\sqljdbc_12.6.2.0_enu folder and this folder has been added to your path environment variable). 
+      After running the above installers, open a cmd window as Administrator 
+      and run the init-sql-server.bat script. 
+      Running this script will update Sql Server configurations required for Broadsea 
+      such as mixed authentication mode and TCP/IP access. 
+      This script must be run as Administrator or it will not work. 
+      <ul>
+        <li>SQL2019-SSEI-Eval.exe</li>
+        <li>SSMS-Setup-ENU-20.2.exe</li>
+        <li>init-sql-server.bat</li>
+      </ul>
+  </ul>
+</p>  
+
+
+<!--
+*
+* Run
+*
+-->
+
+<h2>Run</h2>
+
+<p style="text-align: justify;">
+  Download the latest version of Polites from the 
+  <a href="https://github.com/NACHC-CAD/polites/releases">Polites Releases</a> web site. 
+  Unzip the provided zip file. 
+  Make any required changes to ./auth/sqlserver-demo-app.properties (Polites will run out-of-the-box if you do not change the properties file). 
+  Open a cmd window and run ./polites.bat. 
+</p>
+<p>
+  <img src="./img/quick-start/polites.jpg" />
+</p>
+
+

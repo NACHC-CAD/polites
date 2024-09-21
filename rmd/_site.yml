@@ -18,6 +18,10 @@ navbar:
       menu:
         - text: "Home"
           href: index.html
+        - text: "Introduction"
+          href: introduction.html
+        - text: "Quick Start Guide"
+          href: quick-start.html
         - text: "Microsoft SqlServer"
           href: sqlserver.html
         - text: "PostgreSql (comming soon)"

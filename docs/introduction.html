@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title> Polites Introduction</title>
+
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> Polites </div></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-list"></span>
+     
+    Getting Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="introduction.html">Introduction</a>
+    </li>
+    <li>
+      <a href="quick-start.html">Quick Start Guide</a>
+    </li>
+    <li>
+      <a href="sqlserver.html">Microsoft SqlServer</a>
+    </li>
+    <li class="dropdown-header">PostgreSql (comming soon)</li>
+    <li class="dropdown-header">Docker (comming soon)</li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/NACHC-CAD/polites">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img> <b>Polites
+Introduction</b></h1>
+
+</div>
+
+
+<!--
+*
+* Introduction
+*
+-->
+<h2>
+Polites and Broadsea in a Nutshell
+</h2>
+<p style="text-align: justify;">
+Polites is a Java based tool that enables the automation of complete
+OHDSI implementations for Broadsea based OHDSI deployments.
+</p>
+<p style="text-align: justify;">
+Broadsea is an amazing tool that enables the reliable deployment of a
+complete OHDSI implementation repleate with a demo/test Common Data
+Model (CDM) instance.
+</p>
+<p style="text-align: justify;">
+However, creating a production instance of a CDM and getting it
+connected to Broadsea is a lengthy meticulous process.
+</p>
+<p style="text-align: justify;">
+Polites provides a way to automate this process and includes tools that
+can be used for the maintenance of existing production deployments.
+</p>
+<!--
+*
+* Creating an Instance of Broadsea
+*
+-->
+<h2>
+Creating an Instance of Broadsea
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+Creating an instance of Broadsea is very easy, very reliable, and
+requires very few dependencies.<br />
+
+</p>
+<p style="text-align: justify;">
+To install Broadsea you will need an instance of Java (a correct
+version), an instance of Git (a correct version), and an instance of
+Docker (a correct version)
+</p>
+<p style="text-align: justify;">
+After the dependencies are installed, installing Docker is as simple as
+using Git to clone Broadsea from Github and checking out the version you
+want. After that Broadsea can be started by simply starting Docker from
+the Broadsea directory using docker-compose –profile default up -d. 
+</p>
+<p style="text-align: justify;">
+The entire process is shown below.<br />
+
+<pre class="preformatted">
+git config --global core.autocrlf false
+git clone https://github.com/OHDSI/Broadsea
+cd Broadsea
+git checkout v3.0.0
+cd Broadsea
+docker-compose --profile default up -d
+    </pre>
+</p>
+<p style="text-align: justify;">
+And just like that, we have an OHDSI stack up and running. We can now go
+and take a look at the demo database provided by Broadsea at
+<a href="http://127.0.0.1/atlas/">http://127.0.0.1/atlas/</a>
+</p>
+<p style="text-align: justify;">
+<img src="img/introduction/broadsea-atlas.jpg" />
+</p>
+</p>
+<h3>
+What Broadsea Does
+</h3>
+<p style="text-align: justify;">
+Broadsea provides a turn-key solution with unparalleled ease of use and
+a standardized stable production deployment that includes an instance of
+a Common Data Model replete with test data in PostgreSql.
+</p>
+<h3>
+What’s Left to do Outside of Broadsea
+</h3>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+For virtually every user of Broadsea, there will come a time when there
+is a need to point to an instance of the CDM other than the demo
+instance that is included in Broadsea.
+</p>
+<p style="text-align: justify;">
+This could be a development or test instance that uses a different data
+set. This could be an instance that exists in a different DBMS such as
+SQL Server, PostgreSql, Databricks, Redshift, etc., or this could be the
+CDM for your production data.
+</p>
+<p style="text-align: justify;">
+Setting up this other CDM instance can be a lengthy meticulous process
+that for the most part occurs outside of Broadsea.
+</p>
+<p style="text-align: justify;">
+This process has been automated by Polites.
+</p>
+</p>
+<h3>
+An Example
+</h3>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+As an example, lets look at the steps required to manually set up a CDM
+instance in SQL Server and get Broadsea to point to it.
+</p>
+<h4>
+Install Basic Software
+</h4>
+<ul>
+<li>
+Install Java (the correct version)
+</li>
+<li>
+Install a Git client (a correct version)
+</li>
+<li>
+Install Docker (a correct version)
+</li>
+<li>
+Before we clone and check out Broadsea, remember that we need to use
+<i>git config –global core.autocrlf false</i>
+</li>
+<li>
+Git clone Broadsea
+</li>
+<li>
+Git checkout the version of Broadsea we want to use
+</li>
+<li>
+Clear Docker of any previous version of Broadsea and possibly other
+application that may exist if this is not a new install of Docker
+</li>
+<li>
+Add postgresql.conf:
+<ul>
+<li>
+shared_buffers = 32GB
+</li>
+<li>
+work_mem = 32GB
+</li>
+<li>
+effective_cache_size = 32GB
+</li>
+</ul>
+</li>
+<li>
+Modifications to docker-compose.yml
+<ul>
+<li>
+mem_limit: 32g
+</li>
+<li>
+shm_size: 32g
+</li>
+<li>
+Mapping to resources file: - C:/temp:/temp
+</li>
+<li>
+Mapping to postgresql.conf: -
+./postgresql.conf:/etc/postgresql/postgresql.conf
+</li>
+</ul>
+</li>
+</ul>
+<h4>
+Set up for SQL Server
+</h4>
+<ul>
+<li>
+Find and Install Microsoft SQL Server (a correct version)
+</li>
+<li>
+Download and install the JDBC Driver (the correct version)
+</li>
+<li>
+Download, install, and configure the DLL for the JDBC driver (the
+correct version)
+</li>
+<li>
+Enable TCP/IP
+</li>
+<li>
+Enable Mixed Mode Authentication
+</li>
+<li>
+Restart SQL Server
+</li>
+</ul>
+<h4>
+Databases, Users, Permissions, etc.
+</h4>
+<ul>
+<li>
+Create a SQL Server database for the CDM
+</li>
+<li>
+Create a login for uid/pwd authentication
+</li>
+<li>
+Grant privileges for login:
+<ul>
+<li>
+exec sp_addrolemember N’db_accessadmin’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_backupoperator’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_datareader’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_datawriter’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_ddladmin’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_owner’, N’
+</li>
+<li>
+exec sp_addrolemember N’db_securityadmin’, N’
+</li>
+</ul>
+</li>
+<li>
+Create the tables for the CDM database using the DDL files from the CDM
+</li>
+<li>
+Create a record in CDM_SOURCE
+</li>
+<li>
+Create or find a suitable vocabulary download from Athena
+</li>
+<li>
+Load the Athena files into the CDM Vocabulary tables
+</li>
+<li>
+Import your data into the CDM data tables (PERSON, MEASUREMENT,
+OBSERVATION, etc.)
+</li>
+<li>
+Create the indexes on the CDM using the DDL from the CDM
+</li>
+<li>
+Create the constraints on the CDM using the DDL from the CDM
+</li>
+<li>
+Create WEBAPI SOURCE and SOURCE_DAIMON records
+</li>
+<li>
+Create the Achilles results database
+</li>
+<li>
+Create the Achilles temp database
+</li>
+<li>
+Grant appropriate privileges to appropriate users on the Achilles
+results and temp databases
+</li>
+</ul>
+<h4>
+Achilles
+</h4>
+<ul>
+<li>
+Run Achilles
+</li>
+</ul>
+</p>
+<!--
+*
+* Automation with Polites
+*
+-->
+<h2>
+Automation with Polites
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+All of the above can be achieved using Polites in a few easy steps. Not
+only is the Polites process much easier it is much more consistent,
+repeatable, and reliable.<br />
+
+<ol>
+<li>
+Download and run the
+<a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>
+</li>
+<li>
+Run the SQL Server and SSM installerS provided by the
+YesPolitesInstaller found in c:\_YES_POLITES\databases\sqlserver
+</li>
+<li>
+Run the Docker installer provided by the YesPolitesInstaller found in
+C:\_YES_POLITES\tools\docker and other tools as needed (e.g. R)
+</li>
+<li>
+Install and configure Broadsea by running
+C:\_YES_POLITES\workspace\install-broadsea.bat
+</li>
+<li>
+Start Docker by running C:\_YES_POLITES\workspace\Broadsea\start.bat
+</li>
+<li>
+Download and run the
+<a href="https://github.com/NACHC-CAD/polites/releases">Latest Release
+of Polites</a>
+</li>
+<li>
+Restart Docker by running the stop.bat and start.bat files in
+C:\_YES_POLITES\workspace\Broadsea
+</li>
+</ol>
+</p>
+</p>
+<!--
+*
+* Notes on Docker scripts
+*
+-->
+<h2>
+Notes on Docker scripts
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+Polites includes a number of scripts in the
+C:\_YES_POLITES\workspace\Broadsea directory to make common tasks for
+Docker easer. These scripts include the following:
+<ul>
+<li>
+<b>start.bat:</b> This script will start Docker using the appropriate
+settings for Broadsea.
+</li>
+<li>
+<b>stop.bat:</b> This script will stop Docker using the appropriate
+settings for Broadsea.
+</li>
+<li>
+<b>clean-docker.sh:</b> This script will remove all images, containers,
+and volumes from Docker.<br />
+
+</li>
+<li>
+<b>reset.bat</b>: This script will keep the Postgres database used by
+Broadsea and remove all other images, containers, and volumes from
+Docker.<br />
+
+</li>
+<li>
+<b>show-docker.bat</b>: This script will show all of the images,
+containers, and volumes currently in Docker.
+</li>
+<li>
+<b>export-demo_db.bat</b>: This script can be used to export the
+demo_cdm as csv files.
+</li>
+</ul>
+</p>
+</p>
+<!--
+*
+* Notes on Convenience scripts
+*
+-->
+<h2>
+Notes on Convenience scripts
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+Polites also includes a number of convience scripts in
+C:\_YES_POLITES\tools\bat for common tasks including the following.
+<ul>
+<li>
+<b>git-init.bat</b>: This script sets the git user.email (parameter 1)
+and user.name (parameter 2)
+</li>
+<li>
+<b>commit</b>: This script will commit all of your changes directly up
+to Github. The first parameter is used as the message.
+</li>
+<li>
+<b>jv.bat</b>: This script allows you to change the current version of
+Java. Valid parameters are 8 and 11.
+</li>
+<li>
+<b>git-details, where-am-i, where-am-i-really</b>: These are all
+variation on getting the details of where the current project is in
+Github (e.g. where it was cloned from, the current branch, the tag, the
+SHA, etc.
+</li>
+</ul>
+</p>
+</p>
+<!--
+*
+* Notes on Other Tools Implemented by Polites
+*
+-->
+<h2>
+Notes on Other Polites Tools
+</h2>
+<p style="text-align: justify;">
+Polites provides a number of other tools for common tasks including the
+following.<br />
+
+<ul>
+<li>
+<b>Burn Everything to the Ground</b>: This Option deletes all of the
+items created by Polites
+</li>
+<li>
+<b>Create Dummy Location and Care Site Records</b>: This options creates
+a “not known” record in location and care_site. This option is for data
+sets that do not have values for these tables. This option is required
+as these are required foreign keys.
+</li>
+<li>
+<b>Import and Export Options</b>: The import and export options allow a
+CDM to be exported by one instance and imported into an other. This can
+be done for the entire CDM, just the data tables, or just the vocabulary
+tables.
+</li>
+<li>
+<b>Create Sequences for Primary Keys</b>: This option creates sequences
+that can be used as primary keys when importing data from other sources
+such as FHIR.
+</li>
+<li>
+<b>Disable/Enable constraints</b>: This option allows for constraints to
+be disabled and then re-enabled for activities such as bulk uploads.
+</li>
+</ul>
+</p>
+<!--
+*
+* Notes on resources
+*
+-->
+<h2>
+Notes on Resources
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+Setting up an OHDSI stack requires multiple resources such as JDBC
+database drivers, vocabulary files, mapping files, export files, etc.
+Polites stores these files online and they are downloaded as part of the
+Polites build process. This eliminates the need to hunt for, find,
+download, and install these files (often finding the wrong version and
+needing to start over again).
+</p>
+<p style="text-align: justify;">
+All of the resources downloaded by Polites can be found in
+C:\temp\Polites.
+</p>
+<p style="text-align: justify;">
+<img src="img/introduction/temp-files.jpg" />
+</p>
+</p>
+<!--
+*
+* Summary
+*
+-->
+<h2>
+Summary
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+<ul>
+<li>
+Polites provides an easy way to create a CDM and connect it to the OHDSI
+stack implemented by Broadsea
+</li>
+<li>
+This process is not only easier, but is also more reliable, consistent,
+and repeatable
+</li>
+<li>
+This process ensures that the compatable versions of components are used
+</li>
+<li>
+This process ensures stability by using code freezes and stable
+releases: Components are only versioned as part of planed development
+cycles, code freezes, and releases
+</li>
+<li>
+Polites also provides tools for common tasks such as importing and
+exporting data as csv
+</li>
+<li>
+Polites supports multiple DBMS implementations such as SQL Server,
+PostgreSql, Databricks, etc.
+</li>
+<li>
+The ability to import and export data in a common csv format alows
+Polites to be used to migrate CDM instances from one DBMS to another
+</li>
+<li>
+All configuration for Polites is in a small single properties file. This
+has several advantages including the ability to see the scope of all
+variables that are part of the build and to make all configureation
+changes in a single place. This also makes in incredibly easy to clone a
+system from one site to another. This ability is especailly useful for
+testing. Testing envrionments can be created and reproduced simply by
+sharing configuration files
+</li>
+<li>
+Polites solves the problems that arise from needing to correctly
+identify, locate, and download resources such as JDBC drivers,
+vocabulary files, and other resources: Resources are posted to
+accessable URLs and downloaded automatically as part of the Polites
+build. This capability is configurable. For example, a project could
+define their own complete Athena vocabulary and use Polites to
+distribute it to multiple sites.
+</li>
+</ul>
+</p>
+</p>
+<!--
+*
+* Polites: What's in a Name
+*
+-->
+<h2>
+Polites: What’s in a Name
+</h2>
+<p style="text-align: justify;">
+<p style="text-align: justify;">
+Polites was Odysseus’ best friend on the Odyssey. He was one of the
+first to enter Circe’s palace and he was the one to convince Odysseus to
+leave the island and go back out to the broad sea. Here’s George
+Romney’s painting from 1782 of Circe waving good by to Odysseus,
+Polites, and you as you sail out in to the Broadsea.
+</p>
+<p style="text-align: justify;">
+<img width="300px" src="img/introduction/circe.jpg" />
+</p>
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +20,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.nachc.tools.polites.util.action.ExecutePolitesGoAction;
+import org.nachc.tools.polites.util.action.ExecutePolitesGoActionForPostgres;
+import org.nachc.tools.polites.util.action.ExecutePolitesGoActionForSqlServer;
 import org.yaorma.util.time.Timer;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class PolitesGui extends JFrame {
 	// ---
 	// CREATE CHECK BOXES
 	// ---
-	
+
 	// select
 	private JCheckBox selectAllCheckbox;
 	// reset
@@ -42,7 +42,7 @@ public class PolitesGui extends JFrame {
 	private JCheckBox createDatabaseUsers = new JCheckBox("Create Database Users");
 	private JCheckBox createTables = new JCheckBox("Create Tables");
 	private JCheckBox createCDMSourceRecord = new JCheckBox("Create CDM Source Record");
-	private JCheckBox createLocationAndCareSiteRecords =  new JCheckBox("Create Dummy Location and Care Site Records");
+	private JCheckBox createLocationAndCareSiteRecords = new JCheckBox("Create Dummy Location and Care Site Records");
 	// terminology
 	private JCheckBox truncateTerminology = new JCheckBox("Truncate Terminology");
 	private JCheckBox loadTerminology = new JCheckBox("Load Terminology (From Athena Files)");
@@ -131,11 +131,11 @@ public class PolitesGui extends JFrame {
 				runAchilles.setSelected(selected);
 			}
 		});
-		
+
 		// ---
 		// ADD TO GUI
 		// ---
-		
+
 		// select
 		GroupPanel selectGroup = new GroupPanel(checkboxPanel, "Select");
 		selectGroup.add(selectAllCheckbox);
@@ -193,13 +193,15 @@ public class PolitesGui extends JFrame {
 		//
 
 		JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		databaseType = new JComboBox<>(new String[] { "sqlServer" });
+		databaseType = new JComboBox<>(new String[] { "postgres", "sqlServer" }); // Add "postgres" to the array
 		databaseType.setRenderer(new DefaultListCellRenderer() {
 			@Override
 			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				if ("sqlServer".equals(value)) {
 					setText("SQL Server");
+				} else if ("postgres".equals(value)) {
+					setText("PostgreSQL"); // Set the text display for PostgreSQL
 				}
 				return this;
 			}
@@ -285,18 +287,18 @@ public class PolitesGui extends JFrame {
 		if (enableConstraints.isSelected())
 			confirmationMessage.append("- Enable Constraints\n");
 		// truncate, import, and export data tables
-		if(truncateDataTables.isSelected())
+		if (truncateDataTables.isSelected())
 			confirmationMessage.append("- Truncate Data Tables\n");
-		if(importDataTables.isSelected())
+		if (importDataTables.isSelected())
 			confirmationMessage.append("- Import Data Tables\n");
-		if(exportDataTables.isSelected())
+		if (exportDataTables.isSelected())
 			confirmationMessage.append("- Export Data Tables\n");
 		// truncate, import, and export all tables
-		if(truncateAll.isSelected())
+		if (truncateAll.isSelected())
 			confirmationMessage.append("- Truncate All Tables\n");
-		if(importAll.isSelected())
+		if (importAll.isSelected())
 			confirmationMessage.append("- Import All Tables\n");
-		if(exportAll.isSelected())
+		if (exportAll.isSelected())
 			confirmationMessage.append("- Export All Tables\n");
 		// load synthea
 		if (loadSyntheaCsv.isSelected())
@@ -319,6 +321,7 @@ public class PolitesGui extends JFrame {
 			Timer timer = new Timer();
 			timer.start();
 			ArrayList<String> sel = new ArrayList<String>();
+			log.info("Using java version: \n" + System.getProperty("java.version"));
 			log.info("User chose to continue with the following selections:");
 			// reset
 			if (burnEverythingToTheGround.isSelected()) {
@@ -341,7 +344,7 @@ public class PolitesGui extends JFrame {
 			if (createCDMSourceRecord.isSelected()) {
 				log.info("- Create CDM Source Record");
 				sel.add("createCDMSourceRecord");
-			}			
+			}
 			if (createLocationAndCareSiteRecords.isSelected()) {
 				log.info("- Create Location and Care Site Records");
 				sel.add("createLocationAndCareSiteRecords");
@@ -388,28 +391,28 @@ public class PolitesGui extends JFrame {
 			if (truncateDataTables.isSelected()) {
 				log.info("- Truncate Data Tables");
 				sel.add("truncateDataTables");
-			}		
+			}
 			if (importDataTables.isSelected()) {
 				log.info("- Import Data Tables");
 				sel.add("importDataTables");
-			}		
+			}
 			if (exportDataTables.isSelected()) {
 				log.info("- Export Data Tables");
 				sel.add("exportDataTables");
-			}		
+			}
 			// truncate, import, and export all tables
 			if (truncateAll.isSelected()) {
 				log.info("- Truncate all Tables");
 				sel.add("truncateAll");
-			}		
+			}
 			if (importAll.isSelected()) {
 				log.info("- Import All Tables");
 				sel.add("importAll");
-			}		
+			}
 			if (exportAll.isSelected()) {
 				log.info("- Export All Tables");
 				sel.add("exportAll");
-			}		
+			}
 			// load synthea
 			if (loadSyntheaCsv.isSelected()) {
 				log.info("- Load Synthea CSV");
@@ -439,7 +442,11 @@ public class PolitesGui extends JFrame {
 			log.info("CDM version selected: " + cdmVersion.getSelectedItem());
 			log.info("----------------------------------");
 			log.info("CALLING ACTION...");
-			ExecutePolitesGoAction.exec(sel, databaseType.getSelectedItem() + "", cdmVersion.getSelectedItem() + "");
+			if ("sqlServer".equals(databaseType.getSelectedItem())) {
+				ExecutePolitesGoActionForSqlServer.exec(sel, cdmVersion.getSelectedItem() + "");
+			} else if ("postgres".equals(databaseType.getSelectedItem())) {
+				ExecutePolitesGoActionForPostgres.exec(sel, cdmVersion.getSelectedItem() + "");
+			}
 			log.info("DONE WITH ACTION:");
 			timer.stop();
 			String msg = "";
@@ -449,6 +456,8 @@ public class PolitesGui extends JFrame {
 			msg += "\nelapsed: " + timer.getElapsedString();
 			msg += "\n---------------";
 			log.info("\n" + msg + "\n");
+			log.info("This code was run using the following java version: \n" + System.getProperty("java.version"));
+			
 			log.info("Done.");
 		} else {
 			log.info("User canceled the action.");
@@ -456,4 +465,3 @@ public class PolitesGui extends JFrame {
 	}
 
 }
-

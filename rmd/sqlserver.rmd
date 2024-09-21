@@ -23,7 +23,7 @@ output:
     <li>
       Install Microsoft Sql Server
       <br/>
-      The installerS for the correct version of Microsoft Sql Server is included in the 
+      The installers for the correct version of Microsoft Sql Server is included in the 
       C:\\_YES_POLITES\\databases\\sqlserver directory. 
       Run the following two installers accepting all defaults. 
       <ul>
